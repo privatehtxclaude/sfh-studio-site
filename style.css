@@ -7,8 +7,9 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0
 nav a{color:var(--mut);text-decoration:none;margin-left:20px;font-size:14px}
 nav a:hover,.logo{color:var(--fg)}
 .logo{font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:0!important}
-h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;text-transform:uppercase;font-size:clamp(34px,10.5vw,135px);line-height:1;margin:0 0 14px;letter-spacing:.03em;color:#e5322b}
-.tagline{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(19px,2.6vw,30px);line-height:1.1;margin:0 0 22px;color:#f2efe9}
+h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;text-transform:uppercase;font-size:clamp(33px,9vw,112px);line-height:1;margin:0 0 14px;letter-spacing:.03em;color:#e5322b}
+.sub{font-family:Inter,sans-serif;font-size:clamp(13px,1.4vw,16px);letter-spacing:.18em;text-transform:uppercase;color:#cfcabe;margin:0 0 24px}
+.tagline{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(19px,2.6vw,30px);line-height:1.1;margin:0 0 10px;color:#f2efe9}
 h2{font-size:clamp(32px,5vw,52px);line-height:1.05;margin:0 0 10px;letter-spacing:-.01em}
 .lede{color:var(--mut);max-width:38em;font-size:18px}
 section{padding:64px 0;border-top:1px solid var(--line)}
