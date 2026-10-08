@@ -5,54 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SFH Studio</title>
 <meta name="description" content="AI video ads and imagery that pass as real. Done-for-you packages, daily-volume retainers, and DIY prompt packs.">
-<style>
-:root{--bg:#0e0e0f;--fg:#f2efe9;--mut:#9a968e;--line:#26262a;--card:#17171a;--acc:#e8d9b5;--accfg:#111}
-@media (prefers-color-scheme:light){:root{--bg:#f6f3ec;--fg:#141414;--mut:#6c675d;--line:#ddd7c8;--card:#fff;--acc:#141414;--accfg:#f6f3ec}}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
-nav a{color:var(--mut);text-decoration:none;margin-left:20px;font-size:14px}
-nav a:hover,.logo{color:var(--fg)}
-.logo{font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:0!important}
-h1{font-size:clamp(34px,6vw,64px);line-height:1.05;margin:56px 0 18px;letter-spacing:-.02em;max-width:14em}
-h2{font-size:clamp(26px,4vw,38px);margin:0 0 8px;letter-spacing:-.01em}
-.lede{color:var(--mut);max-width:38em;font-size:18px}
-section{padding:64px 0;border-top:1px solid var(--line)}
-.btn{display:inline-block;background:var(--acc);color:var(--accfg);padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;border:0;cursor:pointer}
-.btn.ghost{background:none;color:var(--fg);border:1px solid var(--line)}
-.row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:28px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column}
-.card.feat{border-color:var(--acc)}
-.tag{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
-.price{font-size:34px;font-weight:700;margin:6px 0 2px}
-.price small{font-size:14px;color:var(--mut);font-weight:400}
-.card ul{padding-left:18px;color:var(--mut);margin:14px 0 22px;flex:1}
-.card .btn{text-align:center}
-.reel{aspect-ratio:9/16;background:var(--card);border:1px dashed var(--line);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--mut);font-size:13px;text-align:center;padding:12px}
-.reels{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));margin-top:28px}
-.steps{counter-reset:s;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:28px}
-.steps div{counter-increment:s}.steps div:before{content:counter(s);display:block;font-size:30px;font-weight:700;color:var(--acc)}
-.steps p{color:var(--mut);margin:4px 0}
-form{display:grid;gap:12px;max-width:560px;margin-top:24px}
-input,select,textarea{width:100%;padding:12px;background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:8px;font:inherit}
-details{border-bottom:1px solid var(--line);padding:14px 0}summary{cursor:pointer;font-weight:600}details p{color:var(--mut);margin:8px 0 0}
-footer{padding:32px 0;color:var(--mut);font-size:13px;border-top:1px solid var(--line)}
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="hero">
+<video class="bg" src="reels/alpine.mp4" poster="reels/alpine.jpg" autoplay muted loop playsinline preload="metadata"></video>
+<div class="shade"></div>
 <div class="wrap">
 <nav><a class="logo" href="#" data-brand>SFH Studio</a>
-<div><a href="#packages">Packages</a><a href="#volume">Daily volume</a><a href="#diy">DIY</a><a href="#direction">Direction</a><a href="#work">Work</a><a href="#start">Start</a></div></nav>
+<div><a href="#work">Work</a><a href="fashion.html">Fashion</a><a href="#packages">Packages</a><a href="community.html">Community</a><a href="#start">Start</a></div></nav>
 
 <header>
-<h1>AI video ads that don't look like AI.</h1>
+<h1>Stayforhours</h1>
+<p class="tagline">AI video ads that don't look like AI.</p>
 <p class="lede">Phone-shot texture, real grain, real pacing. We make the creative, you test it. Pick a package, run the batch yourself with our prompt packs, or put us on daily volume.</p>
-<div class="row"><a class="btn" href="#packages">See packages</a><a class="btn ghost" href="#start">Get a free sample ad</a></div>
+<div class="row"><a class="btn" href="#work">Watch the work</a><a class="btn ghost" href="#packages">See packages</a><a class="btn ghost" href="#start">Get a free sample ad</a></div>
 </header>
+</div>
+</div>
+
+<section id="work" class="work">
+<div class="wrap">
+<p class="eyebrow">Selected work</p>
+<h2>Made by us. Judge for yourself.</h2>
+<p class="lede">Our own films, run through the same pipeline we use for client ads.</p>
+</div>
+<div class="rail" id="reels"></div>
+</section>
+
+<div class="wrap">
 
 <section id="how">
+<p class="eyebrow">Process</p>
 <h2>How it works</h2>
 <div class="steps">
 <div><strong>Pick a lane</strong><p>Done-for-you, daily volume, or DIY prompt packs.</p></div>
@@ -97,12 +83,6 @@ footer{padding:32px 0;color:var(--mut);font-size:13px;border-top:1px solid var(-
 <div class="grid" id="addon-g"></div>
 </section>
 
-<section id="work">
-<h2>Work</h2>
-<p class="lede">Recent work from our own films and fashion projects.</p>
-<div class="reels" id="reels"></div>
-</section>
-
 <section id="start">
 <h2>Start with a free sample</h2>
 <p class="lede">Tell us about your brand. We'll make one ad before you spend anything.</p>
@@ -124,16 +104,18 @@ footer{padding:32px 0;color:var(--mut);font-size:13px;border-top:1px solid var(-
 <details><summary>Can you use my product photos or a real person's likeness?</summary><p>Product photos, yes. We don't generate real people's likeness without written consent.</p></details>
 </section>
 
-<footer>© <span id="yr"></span> <span data-brand>SFH Studio</span> · <span id="mail"></span> · <a href="terms.html" style="color:inherit">Terms</a></footer>
+<footer>© <span id="yr"></span> <span data-brand>SFH Studio</span> · <span id="mail"></span> · <a href="fashion.html" style="color:inherit">Fashion</a> · <a href="community.html" style="color:inherit">Community</a> · <a href="terms.html" style="color:inherit">Terms</a></footer>
 </div>
 
+<script src="contact.js"></script>
 <script>
+// Packages and copy live here; contact details are in contact.js.
 // Single place to edit: brand, contact, form endpoint, Stripe links, packages.
 // DRAFT PRICING: validate against your per-ad credit cost before publishing.
 const SITE = {
   name: 'SFH Studio',
-  email: 'hello@sfh.studio',
-  formAction: '',  // e.g. https://formspree.io/f/xxxxx ; empty = falls back to mailto
+  email: CONTACT.email,
+  formAction: CONTACT.formAction,
   dfy: [
     {tag:'Test', title:'Starter Batch', price:'$290', unit:'one-time', per:'about $58 per ad', link:'', items:['5 ads, 1 concept','3 hook variants','Delivered in 3 days','1 revision round']},
     {tag:'Most picked', feat:true, title:'Growth', price:'$1,100', unit:'/ month', per:'about $55 per ad', link:'', items:['20 ads per month','Weekly creative drops','Hook and format testing plan','Priority turnaround']},
@@ -152,7 +134,15 @@ const SITE = {
     {tag:'Ongoing', feat:true, title:'Creative Director on Call', price:'$900', unit:'/ month', link:'', items:['Monthly strategy and concept rounds','Async feedback on your creative','1 live call per month','Month-to-month']},
     {tag:'1-on-1', title:'Consulting / Coaching', price:'$90', unit:'/ hour', link:'', items:['Live call on your project or the workflow','AI ad and video production, prompts, post','3-hour pack: $240','Recording and notes included']}
   ],
-  reels: [],  // e.g. {src:'reels/film.mp4', label:'Short film'}
+  reels: [
+    {src:'reels/pink-house.mp4', poster:'reels/pink-house.jpg', label:'Boyz in the Future', ar:'9/16'},
+    {src:'reels/after-hours.mp4', poster:'reels/after-hours.jpg', label:'Hours Later', ar:'9/16'},
+    {src:'reels/timezones.mp4', poster:'reels/timezones.jpg', label:'The Day the World Abolished Time Zones', ar:'9/16'},
+    {src:'reels/billboard.mp4', poster:'reels/billboard.jpg', label:'Stay For Hours', ar:'9/16'},
+    {src:'reels/castle.mp4', poster:'reels/castle.jpg', label:'Castle film', ar:'4/3'},
+    {src:'reels/alpine.mp4', poster:'reels/alpine.jpg', label:'Alpine', ar:'4/3'},
+    {src:'reels/reel-v1.mp4', poster:'reels/reel-v1.jpg', label:'Slow Burn', ar:'9/16'}
+  ],
   addons: [
     {tag:'Rights', title:'Extended paid use', price:'+30%', unit:'of package', items:['12 months of paid-ad usage']},
     {tag:'Rights', title:'Exclusivity', price:'+50%', unit:'of package', items:['We don\'t reuse the concept or look for others in your category']},
@@ -176,8 +166,7 @@ const full = p => `<div class="card${p.feat?' feat':''}"><span class="tag">${esc
 const fill = (id, list) => document.getElementById(id).innerHTML = list.map(card).join('');
 fill('dfy', SITE.dfy); fill('vol', SITE.vol); fill('diyg', SITE.diy); fill('dir', SITE.dir); fill('addon-g', SITE.addons); fill('more-g', SITE.more);
 
-document.getElementById('reels').innerHTML = (SITE.reels.length ? SITE.reels : [{label:'Reels coming soon'}]).map(r =>
-  r.src ? `<figure style="margin:0"><video src="${esc(r.src)}" controls muted loop playsinline preload="metadata" style="width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:12px;background:#000"></video><figcaption class="tag" style="margin-top:6px">${esc(r.label)}</figcaption></figure>` : `<div class="reel">${esc(r.label)}</div>`).join('');
+document.getElementById('reels').innerHTML = SITE.reels.map((r,i) => `<figure><video src="${esc(r.src)}" poster="${esc(r.poster||'')}" controls loop playsinline preload="none" style="aspect-ratio:${esc(r.ar||'9/16')}"></video><figcaption><span>${String(i+1).padStart(2,'0')}</span><b>${esc(r.label)}</b></figcaption></figure>`).join('');
 document.title = SITE.name;
 document.querySelectorAll('[data-brand]').forEach(e => e.textContent = SITE.name);
 document.getElementById('yr').textContent = new Date().getFullYear();
@@ -185,10 +174,10 @@ document.getElementById('mail').textContent = SITE.email;
 
 document.getElementById('intake').addEventListener('submit', async e => {
   e.preventDefault();
-  const f = e.target, d = Object.fromEntries(new FormData(f));
+  const f = e.target, d = Object.fromEntries(new FormData(f)); const ref = CONTACT.ref(); if (ref) d.referrer = ref;
   if (SITE.formAction) {
     try {
-      const r = await fetch(SITE.formAction, {method:'POST', headers:{'Accept':'application/json'}, body:new FormData(f)});
+      const r = await fetch(SITE.formAction, {method:'POST', headers:{'Accept':'application/json'}, body:(()=>{const fd=new FormData(f); if (ref) fd.append('referrer', ref); return fd;})()});
       if (r.ok) { f.innerHTML = '<p class="lede">Got it. We\'ll be in touch within a day.</p>'; return; }
     } catch (_) {}
   }

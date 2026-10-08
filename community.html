@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Community · SFH Studio</title>
+<meta name="description" content="Join the SFH Studio community and earn commission when you refer brands and creators.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.calc{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:24px}
+.calc label{display:block;font-size:14px;color:var(--mut);margin-bottom:6px}
+.calc output{color:var(--fg);font-weight:600}
+.calc input[type=range]{padding:0}
+.result{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px}
+.result .big{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(44px,7vw,72px);line-height:1;color:#e5322b}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="subnav"><a class="logo" href="index.html">SFH Studio</a>
+<div><a href="index.html#work">Work</a><a href="fashion.html">Fashion</a><a href="index.html#packages">Packages</a><a href="community.html">Community</a><a href="index.html#start">Start</a></div></nav>
+
+<header>
+<p class="eyebrow" style="margin-top:36px">Community</p>
+<h1 class="page-title">Join the community. Earn when you share it.</h1>
+<p class="lede">Know a brand that needs ads or a creator who wants our recipes? Send them our way. When they buy, you get paid. Free to join.</p>
+<div class="row"><a class="btn" href="#join">Apply to join</a><a class="btn ghost" href="#calc">See what you could earn</a></div>
+</header>
+
+<section id="how">
+<p class="eyebrow">How it works</p>
+<h2>Three steps</h2>
+<div class="steps">
+<div><strong>Apply</strong><p>Tell us where you share. We approve most creators, designers and marketers.</p></div>
+<div><strong>Get your link</strong><p>You get a personal link and a short promo kit with approved clips.</p></div>
+<div><strong>Get paid</strong><p>Someone buys through you. We pay your commission once their payment clears.</p></div>
+</div>
+</section>
+
+<section id="earn">
+<p class="eyebrow">Commission</p>
+<h2>What you earn</h2>
+<p class="lede">Commission is only on real sales to real customers. There's no pay for signing up other promoters.</p>
+<div class="grid" id="rates"></div>
+</section>
+
+<section id="calc">
+<p class="eyebrow">Calculator</p>
+<h2>What it could look like</h2>
+<div class="calc">
+<div>
+<label>Studio clients you refer in a month: <output id="o1">2</output></label>
+<input type="range" id="clients" min="0" max="10" value="2">
+<label style="margin-top:14px">Average first invoice: <output id="o2">$1,100</output></label>
+<select id="avg"><option value="290">Starter Batch, $290</option><option value="450">Direction Sprint, $450</option><option value="1100" selected>Growth, $1,100</option><option value="2100">5 a Day, $2,100</option></select>
+<label style="margin-top:14px">Recipe packs sold in a month: <output id="o3">10</output></label>
+<input type="range" id="packs" min="0" max="100" value="10">
+</div>
+<div class="result"><p class="eyebrow" style="margin:0">Illustrative first-month earnings</p><div class="big" id="total">$0</div><p class="fine" id="breakdown"></p></div>
+</div>
+<p class="fine">This calculator is an illustration, not a promise. Most members will earn much less than the maximum, and some will earn nothing. Your results depend on your audience, your effort and your leads.</p>
+</section>
+
+<section id="join">
+<p class="eyebrow">Apply</p>
+<h2>Join the community</h2>
+<form id="apply">
+<input name="name" placeholder="Your name" required>
+<input name="email" type="email" placeholder="Email" required>
+<input name="handle" placeholder="Instagram / TikTok / site (where you share)" required>
+<select name="audience"><option>Audience size</option><option>Under 1K</option><option>1K to 10K</option><option>10K to 50K</option><option>50K+</option></select>
+<textarea name="notes" rows="4" placeholder="Who do you know that needs ads, lookbooks or AI video?"></textarea>
+<button class="btn" type="submit">Apply</button>
+</form>
+</section>
+
+<section id="rules">
+<p class="eyebrow">Ground rules</p>
+<h2>Program terms</h2>
+<p class="fine">Draft terms, not legal advice. 1) Always disclose that you're a paid partner when you share your link (for example "#ad" or "I earn a commission"), as the FTC requires. 2) No spam, no fake reviews, and no promises about results or income. 3) Commission is paid within 30 days after the customer's payment clears, and not on refunded or disputed payments. 4) Referred clients are credited to the member whose link they used first. 5) You're responsible for your own taxes. We may ask for a tax form before paying over the legal threshold. 6) Either side can end the arrangement at any time, and we can change the rates for future sales. 7) This is a single-level program. Commission is never paid for recruiting other promoters.</p>
+</section>
+
+<footer>© <span id="yr"></span> SFH Studio · <span id="mail"></span> · <a href="fashion.html" style="color:inherit">Fashion</a> · <a href="terms.html" style="color:inherit">Terms</a></footer>
+</div>
+<script src="contact.js"></script>
+<script>
+// DRAFT RATES: change before launch.
+const RATES = {
+  client: {pct: 0.15, label: 'Studio clients', note: 'of their first invoice'},
+  repeat: {pct: 0.10, label: 'Retainer clients, months 2-3', note: 'of each of the next two monthly invoices'},
+  digital: {pct: 0.30, label: 'Recipe packs and bundles', note: 'of each sale'}
+};
+const fmt = n => '$' + Math.round(n).toLocaleString();
+document.getElementById('rates').innerHTML = Object.values(RATES).map(r =>
+  `<div class="card"><span class="tag">${r.label}</span><div class="price">${Math.round(r.pct*100)}%</div><ul><li>${r.note}</li></ul></div>`).join('');
+const $ = id => document.getElementById(id);
+function calc() {
+  const c = +$('clients').value, avg = +$('avg').value, p = +$('packs').value, packPrice = 59;
+  $('o1').textContent = c; $('o2').textContent = fmt(avg); $('o3').textContent = p;
+  const a = c * avg * RATES.client.pct, b = p * packPrice * RATES.digital.pct;
+  $('total').textContent = fmt(a + b);
+  $('breakdown').textContent = `${fmt(a)} from studio clients plus ${fmt(b)} from recipe packs, assuming an average pack price of ${fmt(packPrice)}.`;
+}
+['clients','avg','packs'].forEach(id => $(id).addEventListener('input', calc)); calc();
+
+document.getElementById('apply').addEventListener('submit', e => { e.preventDefault(); CONTACT.submit(e.target, 'Community application'); });
+document.getElementById('yr').textContent = new Date().getFullYear();
+document.getElementById('mail').textContent = CONTACT.email;
+</script>
+</body>
+</html>
