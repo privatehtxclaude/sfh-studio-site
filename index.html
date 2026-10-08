@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SFH Studio</title>
+<meta name="description" content="AI video ads and imagery that pass as real. Done-for-you packages, daily-volume retainers, and DIY prompt packs.">
+<style>
+:root{--bg:#0e0e0f;--fg:#f2efe9;--mut:#9a968e;--line:#26262a;--card:#17171a;--acc:#e8d9b5;--accfg:#111}
+@media (prefers-color-scheme:light){:root{--bg:#f6f3ec;--fg:#141414;--mut:#6c675d;--line:#ddd7c8;--card:#fff;--acc:#141414;--accfg:#f6f3ec}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+nav a{color:var(--mut);text-decoration:none;margin-left:20px;font-size:14px}
+nav a:hover,.logo{color:var(--fg)}
+.logo{font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:0!important}
+h1{font-size:clamp(34px,6vw,64px);line-height:1.05;margin:56px 0 18px;letter-spacing:-.02em;max-width:14em}
+h2{font-size:clamp(26px,4vw,38px);margin:0 0 8px;letter-spacing:-.01em}
+.lede{color:var(--mut);max-width:38em;font-size:18px}
+section{padding:64px 0;border-top:1px solid var(--line)}
+.btn{display:inline-block;background:var(--acc);color:var(--accfg);padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;border:0;cursor:pointer}
+.btn.ghost{background:none;color:var(--fg);border:1px solid var(--line)}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:28px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column}
+.card.feat{border-color:var(--acc)}
+.tag{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.price{font-size:34px;font-weight:700;margin:6px 0 2px}
+.price small{font-size:14px;color:var(--mut);font-weight:400}
+.card ul{padding-left:18px;color:var(--mut);margin:14px 0 22px;flex:1}
+.card .btn{text-align:center}
+.reel{aspect-ratio:9/16;background:var(--card);border:1px dashed var(--line);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--mut);font-size:13px;text-align:center;padding:12px}
+.reels{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));margin-top:28px}
+.steps{counter-reset:s;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:28px}
+.steps div{counter-increment:s}.steps div:before{content:counter(s);display:block;font-size:30px;font-weight:700;color:var(--acc)}
+.steps p{color:var(--mut);margin:4px 0}
+form{display:grid;gap:12px;max-width:560px;margin-top:24px}
+input,select,textarea{width:100%;padding:12px;background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:8px;font:inherit}
+details{border-bottom:1px solid var(--line);padding:14px 0}summary{cursor:pointer;font-weight:600}details p{color:var(--mut);margin:8px 0 0}
+footer{padding:32px 0;color:var(--mut);font-size:13px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a class="logo" href="#" data-brand>SFH Studio</a>
+<div><a href="#packages">Packages</a><a href="#volume">Daily volume</a><a href="#diy">DIY</a><a href="#direction">Direction</a><a href="#work">Work</a><a href="#start">Start</a></div></nav>
+
+<header>
+<h1>AI video ads that don't look like AI.</h1>
+<p class="lede">Phone-shot texture, real grain, real pacing. We make the creative, you test it. Pick a package, run the batch yourself with our prompt packs, or put us on daily volume.</p>
+<div class="row"><a class="btn" href="#packages">See packages</a><a class="btn ghost" href="#start">Get a free sample ad</a></div>
+</header>
+
+<section id="how">
+<h2>How it works</h2>
+<div class="steps">
+<div><strong>Pick a lane</strong><p>Done-for-you, daily volume, or DIY prompt packs.</p></div>
+<div><strong>Send a brief</strong><p>Product, audience, references. Two minutes.</p></div>
+<div><strong>Get creative</strong><p>Finished files, formatted for Reels, TikTok and Meta.</p></div>
+<div><strong>Test and scale</strong><p>Winners get more variants. Losers get replaced.</p></div>
+</div>
+</section>
+
+<section id="packages">
+<h2>Done for you</h2>
+<p class="lede">Fixed scope, fixed price, no custom quote.</p>
+<div class="grid" id="dfy"></div>
+</section>
+
+<section id="volume">
+<h2>Daily volume</h2>
+<p class="lede">For brands that test hard. A steady stream of fresh variants so creative fatigue never stalls your spend.</p>
+<div class="grid" id="vol"></div>
+</section>
+
+<section id="diy">
+<h2>Create your own</h2>
+<p class="lede">The same prompts and post-production recipes we use, packaged so your team can run them.</p>
+<div class="grid" id="diyg"></div>
+</section>
+
+<section id="direction">
+<h2>Creative direction &amp; 1-on-1</h2>
+<p class="lede">Need ideas, a plan, or someone to think it through with? Hire the direction on its own, or book time and learn the workflow.</p>
+<div class="grid" id="dir"></div>
+</section>
+
+<section id="more">
+<h2>Beyond ads</h2>
+<div class="grid" id="more-g"></div>
+</section>
+
+<section id="addons">
+<h2>Add-ons</h2>
+<p class="lede">Every package includes organic use and 90 days of paid-social use. Add more as needed.</p>
+<div class="grid" id="addon-g"></div>
+</section>
+
+<section id="work">
+<h2>Work</h2>
+<p class="lede">Recent work from our own films and fashion projects.</p>
+<div class="reels" id="reels"></div>
+</section>
+
+<section id="start">
+<h2>Start with a free sample</h2>
+<p class="lede">Tell us about your brand. We'll make one ad before you spend anything.</p>
+<form id="intake">
+<input name="name" placeholder="Your name" required>
+<input name="email" type="email" placeholder="Email" required>
+<input name="brand" placeholder="Brand / website" required>
+<select name="interest"><option>Free sample ad</option><option>Done-for-you package</option><option>Daily volume</option><option>DIY prompt packs</option><option>Lookbook</option><option>Brand film</option><option>Creative direction</option><option>1-on-1 consulting / coaching</option></select>
+<textarea name="notes" rows="4" placeholder="What are you selling, and who to?"></textarea>
+<button class="btn" type="submit">Send</button>
+</form>
+</section>
+
+<section id="faq">
+<h2>FAQ</h2>
+<details><summary>Do the ads say they're AI?</summary><p>We don't lead with it, and we're upfront if you ask. Platform AI-disclosure rules are your responsibility to apply when you publish; we'll tell you which ones apply to your placements.</p></details>
+<details><summary>Who owns the files?</summary><p>Once paid, you get organic use and 90 days of paid-social use. Longer paid use, exclusivity and full buyouts are add-ons. See the <a href="terms.html">terms</a>.</p></details>
+<details><summary>What if I don't like it?</summary><p>One revision round is included in every package. Daily volume includes ongoing direction changes.</p></details>
+<details><summary>Can you use my product photos or a real person's likeness?</summary><p>Product photos, yes. We don't generate real people's likeness without written consent.</p></details>
+</section>
+
+<footer>© <span id="yr"></span> <span data-brand>SFH Studio</span> · <span id="mail"></span> · <a href="terms.html" style="color:inherit">Terms</a></footer>
+</div>
+
+<script>
+// Single place to edit: brand, contact, form endpoint, Stripe links, packages.
+// DRAFT PRICING: validate against your per-ad credit cost before publishing.
+const SITE = {
+  name: 'SFH Studio',
+  email: 'Stayforhours@gmail.com',
+  formAction: '',  // e.g. https://formspree.io/f/xxxxx ; empty = falls back to mailto
+  dfy: [
+    {tag:'Test', title:'Starter Batch', price:'$290', unit:'one-time', per:'about $58 per ad', link:'', items:['5 ads, 1 concept','3 hook variants','Delivered in 3 days','1 revision round']},
+    {tag:'Most picked', feat:true, title:'Growth', price:'$1,100', unit:'/ month', per:'about $55 per ad', link:'', items:['20 ads per month','Weekly creative drops','Hook and format testing plan','Priority turnaround']},
+    {tag:'Custom', title:'Brand Campaign', price:'From $2,000', unit:'', link:'', items:['Concept to finished film','Multi-format cutdowns','Scored and sound-designed','Quoted per project']}
+  ],
+  vol: [
+    {tag:'Daily', title:'10 a Day', price:'$3,900', unit:'/ month', link:'', items:['10 new ads every weekday','Rolling brief, async feedback','Dedicated creative lane','Month-to-month']},
+    {tag:'Half', title:'5 a Day', price:'$2,100', unit:'/ month', link:'', items:['5 new ads every weekday','Same workflow as 10 a Day','Upgrade any time']}
+  ],
+  diy: [
+    {tag:'Pack', title:'Real-Look Ad Recipes', price:'$29', unit:'', link:'', items:['UGC-style prompt library','Phone-degradation post recipe','Model and settings guide']},
+    {tag:'Bundle', feat:true, title:'Full Studio Bundle', price:'$89', unit:'', link:'', items:['All recipe packs','Lookbook and film pipelines','Updates as models change']}
+  ],
+  dir: [
+    {tag:'Plan', title:'Creative Direction Sprint', price:'$450', unit:'one-time', link:'', items:['Concepts, hooks and angles for your brand','Test plan and shot list','Delivered as a written plan in 5 days','Execute it yourself or with us']},
+    {tag:'Ongoing', feat:true, title:'Creative Director on Call', price:'$900', unit:'/ month', link:'', items:['Monthly strategy and concept rounds','Async feedback on your creative','1 live call per month','Month-to-month']},
+    {tag:'1-on-1', title:'Consulting / Coaching', price:'$90', unit:'/ hour', link:'', items:['Live call on your project or the workflow','AI ad and video production, prompts, post','3-hour pack: $240','Recording and notes included']}
+  ],
+  reels: [],  // e.g. {src:'reels/film.mp4', label:'Short film'}
+  addons: [
+    {tag:'Rights', title:'Extended paid use', price:'+30%', unit:'of package', items:['12 months of paid-ad usage']},
+    {tag:'Rights', title:'Exclusivity', price:'+50%', unit:'of package', items:['We don\'t reuse the concept or look for others in your category']},
+    {tag:'Rights', title:'Perpetual buyout', price:'+100%', unit:'of package', items:['Unlimited use, forever']},
+    {tag:'Extras', title:'Extra variants', price:'+20%', unit:'each', items:['More hooks or cuts of a delivered ad']},
+    {tag:'Extras', title:'Rush delivery', price:'+25%', unit:'of package', items:['Priority 48-hour turnaround']}
+  ],
+  more: [
+    {tag:'Fashion', title:'AI Lookbook', price:'$550', unit:'/ collection', link:'', items:['Up to 12 stills on locked model identities','Add motion clips: $1,100','Delivered in 5 days']},
+    {tag:'Film', title:'Short Brand Film', price:'From $2,000', unit:'', link:'', items:['Surreal or cinematic short','Concept, keyframes, video, score','Quoted per project']}
+  ]
+};
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const card = p => (p.tag === 'Rights' || p.tag === 'Extras') ? addon(p) : full(p);
+const addon = p => `<div class="card"><span class="tag">${esc(p.tag)}</span><h3 style="margin:6px 0 0">${esc(p.title)}</h3><div class="price">${esc(p.price)} <small>${esc(p.unit)}</small></div><ul>${p.items.map(i=>`<li>${esc(i)}</li>`).join('')}</ul></div>`;
+const full = p => `<div class="card${p.feat?' feat':''}"><span class="tag">${esc(p.tag)}</span><h3 style="margin:6px 0 0">${esc(p.title)}</h3>
+<div class="price">${esc(p.price)} <small>${esc(p.unit)}</small></div>${p.per?`<div class="tag">${esc(p.per)}</div>`:''}
+<ul>${p.items.map(i=>`<li>${esc(i)}</li>`).join('')}</ul>
+<a class="btn" href="${p.link?esc(p.link):'#start'}">${p.link?'Buy now':'Get started'}</a></div>`;
+const fill = (id, list) => document.getElementById(id).innerHTML = list.map(card).join('');
+fill('dfy', SITE.dfy); fill('vol', SITE.vol); fill('diyg', SITE.diy); fill('dir', SITE.dir); fill('addon-g', SITE.addons); fill('more-g', SITE.more);
+
+document.getElementById('reels').innerHTML = (SITE.reels.length ? SITE.reels : [{label:'Reels coming soon'}]).map(r =>
+  r.src ? `<figure style="margin:0"><video src="${esc(r.src)}" controls muted loop playsinline preload="metadata" style="width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:12px;background:#000"></video><figcaption class="tag" style="margin-top:6px">${esc(r.label)}</figcaption></figure>` : `<div class="reel">${esc(r.label)}</div>`).join('');
+document.title = SITE.name;
+document.querySelectorAll('[data-brand]').forEach(e => e.textContent = SITE.name);
+document.getElementById('yr').textContent = new Date().getFullYear();
+document.getElementById('mail').textContent = SITE.email;
+
+document.getElementById('intake').addEventListener('submit', async e => {
+  e.preventDefault();
+  const f = e.target, d = Object.fromEntries(new FormData(f));
+  if (SITE.formAction) {
+    try {
+      const r = await fetch(SITE.formAction, {method:'POST', headers:{'Accept':'application/json'}, body:new FormData(f)});
+      if (r.ok) { f.innerHTML = '<p class="lede">Got it. We\'ll be in touch within a day.</p>'; return; }
+    } catch (_) {}
+  }
+  const body = Object.entries(d).map(([k,v]) => `${k}: ${v}`).join('\n');
+  location.href = `mailto:${SITE.email}?subject=${encodeURIComponent('New inquiry: '+d.interest)}&body=${encodeURIComponent(body)}`;
+});
+</script>
+</body>
+</html>
