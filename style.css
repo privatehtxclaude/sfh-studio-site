@@ -62,3 +62,9 @@ h1.page-title{font-family:'Instrument Serif',Georgia,serif;font-weight:400;text-
 .soon p{color:var(--mut);margin:0 auto;max-width:34em}
 .pill{display:inline-block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line);border-radius:99px;padding:3px 10px;color:var(--mut);margin-bottom:10px}
 .fine{font-size:13px;color:var(--mut);margin-top:18px;max-width:46em}
+/* phone: let the nav wrap so every link is reachable */
+@media (max-width:640px){
+  nav,.subnav{flex-wrap:wrap;gap:12px}
+  nav div,.subnav div{display:flex;flex-wrap:wrap;gap:8px 18px}
+  nav a,.subnav a{margin-left:0}
+}
