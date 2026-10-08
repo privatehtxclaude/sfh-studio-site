@@ -1,5 +1,4 @@
-:root{--bg:#0e0e0f;--fg:#f2efe9;--mut:#9a968e;--line:#26262a;--card:#17171a;--acc:#e8d9b5;--accfg:#111}
-@media (prefers-color-scheme:light){:root{--bg:#f6f3ec;--fg:#141414;--mut:#6c675d;--line:#ddd7c8;--card:#fff;--acc:#141414;--accfg:#f6f3ec}}
+:root{--bg:#080808;--fg:#f2efe9;--mut:#9a968e;--line:#26262a;--card:#17171a;--acc:#e8d9b5;--accfg:#111}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 Inter,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
 h1,h2,h3.serif{font-family:'Instrument Serif',Georgia,'Times New Roman',serif;font-weight:400}
