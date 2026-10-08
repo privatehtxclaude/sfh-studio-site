@@ -117,8 +117,8 @@ const SITE = {
   email: CONTACT.email,
   formAction: CONTACT.formAction,
   dfy: [
-    {tag:'Test', title:'Starter Batch', price:'$290', unit:'one-time', per:'about $58 per ad', link:'', items:['5 ads, 1 concept','3 hook variants','Delivered in 3 days','1 revision round']},
-    {tag:'Most picked', feat:true, title:'Growth', price:'$1,100', unit:'/ month', per:'about $55 per ad', link:'', items:['20 ads per month','Weekly creative drops','Hook and format testing plan','Priority turnaround']},
+    {tag:'Test', title:'Starter Batch', price:'$290', unit:'one-time', per:'about $58 per ad', link:'https://buy.stripe.com/bJe00bfIp9M766f5Z33VC00', items:['5 ads, 1 concept','3 hook variants','Delivered in 3 days','1 revision round']},
+    {tag:'Most picked', feat:true, title:'Growth', price:'$1,100', unit:'/ month', per:'about $55 per ad', link:'https://buy.stripe.com/6oU7sDgMt8I3fGPfzD3VC07', items:['20 ads per month','Weekly creative drops','Hook and format testing plan','Priority turnaround']},
     {tag:'Custom', title:'Brand Campaign', price:'From $2,000', unit:'', link:'', items:['Concept to finished film','Multi-format cutdowns','Scored and sound-designed','Quoted per project']}
   ],
   vol: [
@@ -126,13 +126,13 @@ const SITE = {
     {tag:'Half', title:'5 a Day', price:'$2,100', unit:'/ month', link:'', items:['5 new ads every weekday','Same workflow as 10 a Day','Upgrade any time']}
   ],
   diy: [
-    {tag:'Pack', title:'Real-Look Ad Recipes', price:'$29', unit:'', link:'', items:['UGC-style prompt library','Phone-degradation post recipe','Model and settings guide']},
-    {tag:'Bundle', feat:true, title:'Full Studio Bundle', price:'$89', unit:'', link:'', items:['All recipe packs','Lookbook and film pipelines','Updates as models change']}
+    {tag:'Pack', title:'Real-Look Ad Recipes', price:'$29', unit:'', link:'https://buy.stripe.com/bJe4grdAhe2n52b0EJ3VC02', items:['UGC-style prompt library','Phone-degradation post recipe','Model and settings guide']},
+    {tag:'Bundle', feat:true, title:'Full Studio Bundle', price:'$89', unit:'', link:'https://buy.stripe.com/bJe6oz1Rz7DZ7ajdrv3VC03', items:['All recipe packs','Lookbook and film pipelines','Updates as models change']}
   ],
   dir: [
-    {tag:'Plan', title:'Creative Direction Sprint', price:'$450', unit:'one-time', link:'', items:['Concepts, hooks and angles for your brand','Test plan and shot list','Delivered as a written plan in 5 days','Execute it yourself or with us']},
-    {tag:'Ongoing', feat:true, title:'Creative Director on Call', price:'$900', unit:'/ month', link:'', items:['Monthly strategy and concept rounds','Async feedback on your creative','1 live call per month','Month-to-month']},
-    {tag:'1-on-1', title:'Consulting / Coaching', price:'$90', unit:'/ hour', link:'', items:['Live call on your project or the workflow','AI ad and video production, prompts, post','3-hour pack: $240','Recording and notes included']}
+    {tag:'Plan', title:'Creative Direction Sprint', price:'$450', unit:'one-time', link:'https://buy.stripe.com/7sY8wH3ZHf6r2U30EJ3VC01', items:['Concepts, hooks and angles for your brand','Test plan and shot list','Delivered as a written plan in 5 days','Execute it yourself or with us']},
+    {tag:'Ongoing', feat:true, title:'Creative Director on Call', price:'$900', unit:'/ month', link:'https://buy.stripe.com/6oU5kvdAhe2n0LVbjn3VC09', items:['Monthly strategy and concept rounds','Async feedback on your creative','1 live call per month','Month-to-month']},
+    {tag:'1-on-1', title:'Consulting / Coaching', price:'$90', unit:'/ hour', link:'https://buy.stripe.com/00w00bbs9f6ramvcnr3VC05', items:['Live call on your project or the workflow','AI ad and video production, prompts, post','Recording and notes included'], extra:{label:'Or a 3-hour pack, $240', url:'https://buy.stripe.com/28EcMXao5e2nfGP4UZ3VC06'}}
   ],
   reels: [
     {src:'reels/pink-house.mp4', poster:'reels/pink-house.jpg', label:'Boyz in the Future', ar:'9/16'},
@@ -151,7 +151,7 @@ const SITE = {
     {tag:'Extras', title:'Rush delivery', price:'+25%', unit:'of package', items:['Priority 48-hour turnaround']}
   ],
   more: [
-    {tag:'Fashion', title:'AI Lookbook', price:'$550', unit:'/ collection', link:'', items:['Up to 12 stills on locked model identities','Add motion clips: $1,100','Delivered in 5 days']},
+    {tag:'Fashion', title:'AI Lookbook', price:'$550', unit:'/ collection', link:'https://buy.stripe.com/3cIcMXeEl0bxamv3QV3VC04', items:['Up to 12 stills on locked model identities','Add motion clips: $1,100','Delivered in 5 days']},
     {tag:'Film', title:'Short Brand Film', price:'From $2,000', unit:'', link:'', items:['Surreal or cinematic short','Concept, keyframes, video, score','Quoted per project']}
   ]
 };
@@ -162,7 +162,7 @@ const addon = p => `<div class="card"><span class="tag">${esc(p.tag)}</span><h3 
 const full = p => `<div class="card${p.feat?' feat':''}"><span class="tag">${esc(p.tag)}</span><h3 style="margin:6px 0 0">${esc(p.title)}</h3>
 <div class="price">${esc(p.price)} <small>${esc(p.unit)}</small></div>${p.per?`<div class="tag">${esc(p.per)}</div>`:''}
 <ul>${p.items.map(i=>`<li>${esc(i)}</li>`).join('')}</ul>
-<a class="btn" href="${p.link?esc(p.link):'#start'}">${p.link?'Buy now':'Get started'}</a></div>`;
+<a class="btn" href="${p.link?esc(p.link):'#start'}">${p.link?(/month/.test(p.unit)?'Subscribe':'Buy now'):'Get started'}</a>${p.extra?`<a class="btn ghost" style="margin-top:8px" href="${esc(p.extra.url)}">${esc(p.extra.label)}</a>`:''}</div>`;
 const fill = (id, list) => document.getElementById(id).innerHTML = list.map(card).join('');
 fill('dfy', SITE.dfy); fill('vol', SITE.vol); fill('diyg', SITE.diy); fill('dir', SITE.dir); fill('addon-g', SITE.addons); fill('more-g', SITE.more);
 
