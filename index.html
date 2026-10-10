@@ -45,6 +45,7 @@
 <input name="name" placeholder="Your name" required>
 <input name="email" type="email" placeholder="Email" required>
 <input name="brand" placeholder="Brand / website" required>
+<select name="style"><option value="">Style (optional)</option><option>Shoot a movie</option><option>UGC ad</option><option>Brand story</option><option>Your own billboard</option><option>Fantasy film</option><option>Cinematic commercial</option><option>Up-close talk</option></select>
 <select name="interest"><option>Free sample ad</option><option>Done-for-you package</option><option>Daily volume</option><option>DIY prompt packs</option><option>Lookbook</option><option>Brand film</option><option>Creative direction</option><option>1-on-1 consulting / coaching</option></select>
 <textarea name="notes" rows="4" placeholder="What are you selling, and who to?"></textarea>
 <button class="btn" type="submit">Send</button>
@@ -61,18 +62,41 @@ const SITE = {
   email: CONTACT.email,
   formAction: CONTACT.formAction,
   reels: [
-    {src:'reels/pink-house.mp4', poster:'reels/pink-house.jpg', label:'Boyz in the Future', ar:'9/16'},
-    {src:'reels/after-hours.mp4', poster:'reels/after-hours.jpg', label:'Hours Later', ar:'9/16'},
-    {src:'reels/timezones.mp4', poster:'reels/timezones.jpg', label:'The Day the World Abolished Time Zones', ar:'9/16'},
-    {src:'reels/billboard.mp4', poster:'reels/billboard.jpg', label:'Stay For Hours', ar:'9/16'},
-    {src:'reels/castle.mp4', poster:'reels/castle.jpg', label:'Castle film', ar:'4/3'},
-    {src:'reels/alpine.mp4', poster:'reels/alpine.jpg', label:'Alpine', ar:'4/3'},
-    {src:'reels/reel-v1.mp4', poster:'reels/reel-v1.jpg', label:'Slow Burn', ar:'9/16'}
+    {src:'reels/pink-house.mp4', poster:'reels/pink-house.jpg', label:'Boyz in the Future', ar:'9/16', style:'Shoot a movie'},
+    {src:'reels/after-hours.mp4', poster:'reels/after-hours.jpg', label:'Hours Later', ar:'9/16', style:'UGC ad'},
+    {src:'reels/timezones.mp4', poster:'reels/timezones.jpg', label:'The Day the World Abolished Time Zones', ar:'9/16', style:'Brand story'},
+    {src:'reels/billboard.mp4', poster:'reels/billboard.jpg', label:'Stay For Hours', ar:'9/16', style:'Your own billboard'},
+    {src:'reels/castle.mp4', poster:'reels/castle.jpg', label:'Castle film', ar:'4/3', style:'Fantasy film'},
+    {src:'reels/alpine.mp4', poster:'reels/alpine.jpg', label:'Alpine', ar:'4/3', style:'Cinematic commercial'},
+    {src:'reels/reel-v1.mp4', poster:'reels/reel-v1.jpg', label:'Slow Burn', ar:'9/16', style:'Up-close talk'}
   ]
 };
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-document.getElementById('reels').innerHTML = SITE.reels.map((r,i) => `<figure><video src="${esc(r.src)}" poster="${esc(r.poster||'')}" controls loop playsinline preload="none" style="aspect-ratio:${esc(r.ar||'9/16')}"></video><figcaption><span>${String(i+1).padStart(2,'0')}</span><b>${esc(r.label)}</b></figcaption></figure>`).join('');
+document.getElementById('reels').innerHTML = SITE.reels.map((r,i) => `<figure><video src="${esc(r.src)}" poster="${esc(r.poster||'')}" controls loop playsinline preload="none" style="aspect-ratio:${esc(r.ar||'9/16')}"></video><figcaption><span>${String(i+1).padStart(2,'0')}</span><b>${esc(r.label)}</b></figcaption><div class="pick"><span>${esc(r.style)}</span><button type="button" class="btn ghost pick-btn" data-style="${esc(r.style)}">Make mine</button></div></figure>`).join('');
+
+// Cloudflare static assets ignore Range requests, so streamed video can't be scrubbed (worst on phones). Loading each file as a blob just before it scrolls into view makes seeking work.
+const vio = new IntersectionObserver(es => es.forEach(async e => {
+  if (!e.isIntersecting) return;
+  const v = e.target; vio.unobserve(v);
+  try {
+    const blob = await (await fetch(v.getAttribute('src'))).blob();
+    const t = v.currentTime, playing = !v.paused;
+    v.preload = 'metadata';
+    v.src = URL.createObjectURL(blob);
+    if (t) v.currentTime = t;
+    if (playing) v.play();
+  } catch (_) {}
+}), {rootMargin: '600px'});
+document.querySelectorAll('#reels video').forEach(v => vio.observe(v));
+
+document.getElementById('reels').addEventListener('click', e => {
+  const b = e.target.closest('.pick-btn'); if (!b) return;
+  const f = document.getElementById('intake');
+  f.elements.style.value = b.dataset.style;
+  document.getElementById('start').scrollIntoView({behavior:'smooth'});
+  setTimeout(() => f.elements.name.focus({preventScroll:true}), 500);
+});
 document.title = SITE.name;
 document.querySelectorAll('[data-brand]').forEach(e => e.textContent = SITE.name);
 document.getElementById('yr').textContent = new Date().getFullYear();
