@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ads · SFH Studio</title>
 <meta name="description" content="AI video ad packages, daily-volume retainers, creative direction and DIY recipe packs from SFH Studio.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website"><meta property="og:site_name" content="SFH Studio">
+<meta property="og:title" content="Ads · SFH Studio"><meta property="og:description" content="AI video ad packages, daily-volume retainers, creative direction and DIY recipe packs from SFH Studio.">
+<meta property="og:url" content="https://sfh.studio/ads.html"><meta property="og:image" content="https://sfh.studio/og.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -36,12 +41,7 @@
 <h2>Done for you</h2>
 <p class="lede">Fixed scope, fixed price, no custom quote.</p>
 <div class="grid" id="dfy"></div>
-</section>
-
-<section id="volume">
-<h2>Daily volume</h2>
-<p class="lede">For brands that test hard. A steady stream of fresh variants so creative fatigue never stalls your spend.</p>
-<div class="grid" id="vol"></div>
+<p class="fine">Need more? Daily volume (5 or 10 new ads every weekday) starts at $2,100 a month, and brand films start at $2,000. <a href="index.html#start" style="color:inherit">Ask for a quote.</a> Every package includes organic use and 90 days of paid-social use. Longer paid use, exclusivity, a full buyout and rush delivery can be added to any package.</p>
 </section>
 
 <section id="diy">
@@ -51,20 +51,9 @@
 </section>
 
 <section id="direction">
-<h2>Creative direction &amp; 1-on-1</h2>
-<p class="lede">Need ideas, a plan, or someone to think it through with? Hire the direction on its own, or book time and learn the workflow.</p>
+<h2>Direction &amp; testing</h2>
+<p class="lede">Need ideas, a plan, or help running a test? Hire the direction on its own, or book time and learn the workflow.</p>
 <div class="grid" id="dir"></div>
-</section>
-
-<section id="more">
-<h2>Beyond ads</h2>
-<div class="grid" id="more-g"></div>
-</section>
-
-<section id="addons">
-<h2>Add-ons</h2>
-<p class="lede">Every package includes organic use and 90 days of paid-social use. Add more as needed.</p>
-<div class="grid" id="addon-g"></div>
 </section>
 
 <section id="faq">
@@ -89,11 +78,7 @@ const SITE = {
   dfy: [
     {tag:'Test', title:'Starter Batch', price:'$290', unit:'one-time', per:'about $58 per ad', link:'https://buy.stripe.com/bJe00bfIp9M766f5Z33VC00', items:['5 ads, 1 concept','3 hook variants','Delivered in 3 days','1 revision round']},
     {tag:'Most picked', feat:true, title:'Growth', price:'$1,100', unit:'/ month', per:'about $55 per ad', link:'https://buy.stripe.com/6oU7sDgMt8I3fGPfzD3VC07', items:['20 ads per month','Weekly creative drops','Hook and format testing plan','Priority turnaround']},
-    {tag:'Custom', title:'Brand Campaign', price:'From $2,000', unit:'', link:'', items:['Concept to finished film','Multi-format cutdowns','Scored and sound-designed','Quoted per project']}
-  ],
-  vol: [
-    {tag:'Daily', title:'10 a Day', price:'$3,900', unit:'/ month', link:'', items:['10 new ads every weekday','Rolling brief, async feedback','Dedicated creative lane','Month-to-month']},
-    {tag:'Half', title:'5 a Day', price:'$2,100', unit:'/ month', link:'', items:['5 new ads every weekday','Same workflow as 10 a Day','Upgrade any time']}
+    {tag:'Fashion', title:'AI Lookbook', price:'$550', unit:'/ collection', link:'https://buy.stripe.com/3cIcMXeEl0bxamv3QV3VC04', items:['Up to 12 stills on locked model identities','Add motion clips: $1,100','Delivered in 5 days']}
   ],
   diy: [
     {tag:'Recipe', title:'The Viral Recipe', price:'$19', unit:'', link:'https://buy.stripe.com/7sYcMX53Lgav7ajfzD3VC0a', items:['Pick any look from our viral reels','The still prompt and settings','The video prompt that brings it to life','Delivered by email after purchase']},
@@ -101,32 +86,19 @@ const SITE = {
   ],
   dir: [
     {tag:'Plan', title:'Creative Direction Sprint', price:'$450', unit:'one-time', link:'https://buy.stripe.com/7sY8wH3ZHf6r2U30EJ3VC01', items:['Concepts, hooks and angles for your brand','Test plan and shot list','Delivered as a written plan in 5 days','Execute it yourself or with us']},
-    {tag:'Ongoing', feat:true, title:'Creative Director on Call', price:'$900', unit:'/ month', link:'https://buy.stripe.com/6oU5kvdAhe2n0LVbjn3VC09', items:['Monthly strategy and concept rounds','Async feedback on your creative','1 live call per month','Month-to-month']},
+    {tag:'Run it', title:'Managed Testing', price:'$750', unit:'/ 2 weeks', link:'', items:['We launch and monitor your test in your own ad account','1 concept, 3 hooks, one round of cuts based on results','Plain-English results report at the end','Ad spend is paid by you, directly to the platform']},
     {tag:'1-on-1', title:'Consulting / Coaching', price:'$90', unit:'/ hour', link:'https://buy.stripe.com/00w00bbs9f6ramvcnr3VC05', items:['Live call on your project or the workflow','AI ad and video production, prompts, post','Recording and notes included'], extra:{label:'Or a 3-hour pack, $240', url:'https://buy.stripe.com/28EcMXao5e2nfGP4UZ3VC06'}}
-  ],
-  addons: [
-    {tag:'Rights', title:'Extended paid use', price:'+30%', unit:'of package', items:['12 months of paid-ad usage']},
-    {tag:'Rights', title:'Exclusivity', price:'+50%', unit:'of package', items:['We don\'t reuse the concept or look for others in your category']},
-    {tag:'Rights', title:'Perpetual buyout', price:'+100%', unit:'of package', items:['Unlimited use, forever']},
-    {tag:'Extras', title:'Extra variants', price:'+20%', unit:'each', items:['More hooks or cuts of a delivered ad']},
-    {tag:'Extras', title:'Rush delivery', price:'+25%', unit:'of package', items:['Priority 48-hour turnaround']}
-  ],
-  more: [
-    {tag:'Fashion', title:'AI Lookbook', price:'$550', unit:'/ collection', link:'https://buy.stripe.com/3cIcMXeEl0bxamv3QV3VC04', items:['Up to 12 stills on locked model identities','Add motion clips: $1,100','Delivered in 5 days']},
-    {tag:'Film', title:'Short Brand Film', price:'From $2,000', unit:'', link:'', items:['Surreal or cinematic short','Concept, keyframes, video, score','Quoted per project']},
-    {tag:'Run it', title:'Managed Testing', price:'$750', unit:'/ 2 weeks', link:'', items:['We launch and monitor your test in your own ad account','1 concept, 3 hooks, one round of cuts based on results','Plain-English results report at the end','Ad spend is paid by you, directly to the platform']}
   ]
 };
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const card = p => (p.tag === 'Rights' || p.tag === 'Extras') ? addon(p) : full(p);
-const addon = p => `<div class="card"><span class="tag">${esc(p.tag)}</span><h3 style="margin:6px 0 0">${esc(p.title)}</h3><div class="price">${esc(p.price)} <small>${esc(p.unit)}</small></div><ul>${p.items.map(i=>`<li>${esc(i)}</li>`).join('')}</ul></div>`;
+const card = p => full(p);
 const full = p => `<div class="card${p.feat?' feat':''}"><span class="tag">${esc(p.tag)}</span><h3 style="margin:6px 0 0">${esc(p.title)}</h3>
 <div class="price">${esc(p.price)} <small>${esc(p.unit)}</small></div>${p.per?`<div class="tag">${esc(p.per)}</div>`:''}
 <ul>${p.items.map(i=>`<li>${esc(i)}</li>`).join('')}</ul>
 <a class="btn" href="${p.link?esc(p.link):'index.html#start'}">${p.link?(/month/.test(p.unit)?'Subscribe':'Buy now'):'Get started'}</a>${p.extra?`<a class="btn ghost" style="margin-top:8px" href="${esc(p.extra.url)}">${esc(p.extra.label)}</a>`:''}</div>`;
 const fill = (id, list) => document.getElementById(id).innerHTML = list.map(card).join('');
-fill('dfy', SITE.dfy); fill('vol', SITE.vol); fill('diyg', SITE.diy); fill('dir', SITE.dir); fill('addon-g', SITE.addons); fill('more-g', SITE.more);
+fill('dfy', SITE.dfy); fill('diyg', SITE.diy); fill('dir', SITE.dir);
 
 document.getElementById('yr').textContent = new Date().getFullYear();
 document.getElementById('mail').textContent = CONTACT.email;
