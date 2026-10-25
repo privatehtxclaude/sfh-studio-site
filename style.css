@@ -154,15 +154,10 @@ details p{margin:10px 0 0;color:var(--ink)}
 .marquee div{display:flex;width:max-content;animation:slide 38s linear infinite}
 .marquee .mq{display:flex;gap:.32em;padding-right:.32em;font:400 clamp(72px,12vw,180px)/.9 var(--display);text-transform:uppercase;white-space:nowrap}
 .mq .w{position:relative}
-.mq b{display:block;font-weight:inherit;animation:mqblink 3.6s ease-in-out infinite}
-.mq .w:nth-child(3) b{animation-delay:1.2s}
-.mq .w:nth-child(5) b{animation-delay:2.4s}
-/* a small red STAY over each word on its own rhythm; script moves it to a random spot each cycle */
-.mq i{position:absolute;font:600 .3em/1 Cormorant,Georgia,serif;font-style:normal;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;color:var(--red);opacity:0;animation:stayblink 2.6s ease-in-out infinite;pointer-events:none}
-.mq .w:nth-child(3) i{animation-delay:.9s}
-.mq .w:nth-child(5) i{animation-delay:1.8s}
-@keyframes mqblink{0%,100%{opacity:1}50%{opacity:0}}
-@keyframes stayblink{0%,100%{opacity:0}45%,55%{opacity:1}}
+.mq b{display:block;font-weight:inherit}
+/* a small red STAY lights up on one word at a time, top-right, fading slowly */
+.mq i{position:absolute;top:-.12em;right:-.55em;font:600 .3em/1 Cormorant,Georgia,serif;font-style:normal;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;color:var(--red);opacity:0;transition:opacity 1.2s ease;pointer-events:none}
+.mq i.on{opacity:1}
 .marquee:hover div{animation-play-state:paused}
 @keyframes slide{to{transform:translateX(-50%)}}
 
@@ -265,8 +260,6 @@ body>.wrap>footer a{color:inherit}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .marquee div{animation:none}
-  .mq b,.mq i{animation:none}
-  .mq i{opacity:1}
   .js .rv{opacity:1;transform:none;transition:none}
   .btn,.panel,.panel video,.hero .btn{transition:none}
 }

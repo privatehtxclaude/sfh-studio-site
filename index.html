@@ -216,12 +216,18 @@ document.querySelectorAll('[data-brand]').forEach(e => e.textContent = SITE.name
 document.getElementById('yr').textContent = new Date().getFullYear();
 document.getElementById('mail').textContent = SITE.email;
 
-// STAY jumps to a random spot on its word at the start of every blink
-document.querySelectorAll('.mq i').forEach(el => {
-  const place = () => { el.style.left = (Math.random() * 75) + '%'; el.style.top = (Math.random() * 70) + '%'; };
-  place();
-  el.addEventListener('animationiteration', place);
-});
+// one red STAY at a time, on a word that is on screen
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const stays = [...document.querySelectorAll('.mq i')];
+  let last = null;
+  setInterval(() => {
+    const pool = stays.filter(i => { const r = i.parentElement.getBoundingClientRect(), mid = r.left + r.width / 2; return i !== last && mid > innerWidth * .1 && mid < innerWidth * .9; });
+    if (!pool.length) return;
+    const el = pool[Math.floor(Math.random() * pool.length)];
+    el.classList.add('on'); last = el;
+    setTimeout(() => el.classList.remove('on'), 1800);
+  }, 3200);
+}
 
 // entrances: reveal each part once as it scrolls in
 const rio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); rio.unobserve(e.target); } }), {rootMargin:'0px 0px -8% 0px'});
