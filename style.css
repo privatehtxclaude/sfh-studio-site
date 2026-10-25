@@ -77,11 +77,11 @@ details p{margin:10px 0 0;color:var(--ink)}
 .hero{position:relative;height:100svh;min-height:600px;display:flex;flex-direction:column;overflow:hidden;background:#000;padding:0 var(--m)}
 .hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero .shade{position:absolute;inset:0;background:rgba(0,0,0,.55)}
-.hero nav,.hero .what-wrap,.hero .cta,.hero h1{position:relative}
-.what-wrap{margin-top:clamp(20px,3.5vh,40px)}
-.what{font-family:var(--text);font-size:21px;line-height:1.4;max-width:19em;margin:0;font-weight:400;color:rgba(255,255,255,.92)}
+.hero nav,.hero .cta,.hero h1{position:relative}
+.what{font-family:var(--text);font-size:16px;line-height:1.5;max-width:24em;margin:0;font-weight:400;color:rgba(255,255,255,.78);text-align:right}
 .hero h1{font-family:var(--mark);font-weight:600;font-size:12.4vw;line-height:.8;letter-spacing:0;text-transform:uppercase;color:var(--red);white-space:nowrap;margin:0;padding-bottom:.16em;order:2}
-.cta{order:1;margin-top:auto;display:flex;justify-content:flex-end;align-items:center;gap:20px 32px;flex-wrap:wrap;padding-bottom:clamp(16px,2.4vw,32px)}
+.cta{order:1;margin-top:auto;display:flex;flex-direction:column;align-items:flex-end;gap:18px;padding-bottom:clamp(16px,2.4vw,32px)}
+.acts{display:flex;align-items:center;gap:20px 32px;flex-wrap:wrap}
 .stay{position:absolute;right:var(--m);top:84px;font-size:14px;margin:0;color:var(--ink);font-variant-numeric:tabular-nums;z-index:2}
 
 /* hero actions: slim outlined pill and a quiet link, bottom right */
@@ -250,9 +250,9 @@ body>.wrap>footer a{color:inherit}
   .hero{height:auto;min-height:100svh;padding-bottom:10px}
   .hero h1{font-size:12vw}
   .stay{top:112px;right:auto;left:var(--m)}
-  .what-wrap{margin-top:40px}
-  .what{font-size:20px}
-  .cta{flex-direction:column;align-items:flex-start;gap:18px}
+  .what{font-size:16px;text-align:left}
+  .cta{align-items:flex-start;gap:16px}
+  .acts{flex-direction:column;align-items:flex-start;gap:14px}
   .hero .btn,.hero .btn.ghost{background:none;border:0;border-radius:0;padding:0;font-size:18px;opacity:1}
   .hero .btn:hover{background:none;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:7px}
   .f-name{font-size:18vw}
