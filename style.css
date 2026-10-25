@@ -73,3 +73,14 @@ h1.page-title{font-family:'Instrument Serif',Georgia,serif;font-weight:400;text-
   nav div,.subnav div{display:flex;flex-wrap:wrap;gap:8px 18px}
   nav a,.subnav a{margin-left:0}
 }
+
+/* gallery + all-videos grid */
+.gallery{columns:3 260px;column-gap:14px;margin-top:28px}
+.gallery img{width:100%;height:auto;display:block;margin:0 0 14px;border-radius:12px;break-inside:avoid;background:var(--card)}
+.vgrid{display:grid;gap:28px 20px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));align-items:start;margin-top:8px}
+.vgrid figure{margin:0;min-width:0}
+.vgrid video{display:block;width:100%;height:auto;border-radius:14px;background:#000}
+.vgrid figcaption{display:flex;gap:10px;align-items:baseline;margin-top:10px;color:#cfcabe;font-size:14px}
+.vgrid figcaption b{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:21px;line-height:1.1;color:#fff}
+.vgrid figcaption span{color:#7d796f;font-variant-numeric:tabular-nums}
+@media (min-width:560px){.vgrid figure.wide{grid-column:span 2}}

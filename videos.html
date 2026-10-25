@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Selected Films · SFH Studio</title>
+<meta name="description" content="A selection of finished films from SFH Studio.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website"><meta property="og:site_name" content="SFH Studio">
+<meta property="og:title" content="Selected Films · SFH Studio"><meta property="og:description" content="A selection of finished films from SFH Studio.">
+<meta property="og:url" content="https://sfh.studio/videos.html"><meta property="og:image" content="https://sfh.studio/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<nav class="subnav"><a class="logo" href="index.html">SFH Studio</a>
+<div><a href="index.html#work">Work</a><a href="ads.html">Ads</a><a href="fashion.html">Fashion</a><a href="community.html">Community</a><a href="index.html#start">Start</a></div></nav>
+<header>
+<p class="eyebrow" style="margin-top:36px">Selected films</p>
+<h1 class="page-title">Selected films.</h1>
+<p class="lede">A selection of our work, one film at a time.</p>
+</header>
+<section style="border-top:0;padding-top:28px"><div class="vgrid" id="vgrid"><figure><video src="videos/time-zones.mp4" poster="videos/time-zones.jpg" controls loop playsinline preload="none" style="aspect-ratio:9/16"></video><figcaption><span>01</span><b>The Day the World Abolished Time Zones</b></figcaption></figure><figure><video src="videos/boyz.mp4" poster="videos/boyz.jpg" controls loop playsinline preload="none" style="aspect-ratio:9/16"></video><figcaption><span>02</span><b>Boyz in the Future</b></figcaption></figure><figure><video src="videos/where-do-you-exist.mp4" poster="videos/where-do-you-exist.jpg" controls loop playsinline preload="none" style="aspect-ratio:9/16"></video><figcaption><span>03</span><b>Where Do You Exist</b></figcaption></figure><figure class="wide"><video src="videos/love.mp4" poster="videos/love.jpg" controls loop playsinline preload="none" style="aspect-ratio:4/3"></video><figcaption><span>04</span><b>Love</b></figcaption></figure><figure><video src="videos/city-of-screens.mp4" poster="videos/city-of-screens.jpg" controls loop playsinline preload="none" style="aspect-ratio:9/16"></video><figcaption><span>05</span><b>City of Screens</b></figcaption></figure><figure><video src="videos/winged-horse.mp4" poster="videos/winged-horse.jpg" controls loop playsinline preload="none" style="aspect-ratio:9/16"></video><figcaption><span>06</span><b>Winged Horse</b></figcaption></figure><figure><video src="videos/crystal-palace.mp4" poster="videos/crystal-palace.jpg" controls loop playsinline preload="none" style="aspect-ratio:9/16"></video><figcaption><span>07</span><b>Crystal Palace</b></figcaption></figure><figure><video src="videos/dinner-party.mp4" poster="videos/dinner-party.jpg" controls loop playsinline preload="none" style="aspect-ratio:9/16"></video><figcaption><span>08</span><b>Dinner Party</b></figcaption></figure><figure><video src="videos/flooded-hall.mp4" poster="videos/flooded-hall.jpg" controls loop playsinline preload="none" style="aspect-ratio:9/16"></video><figcaption><span>09</span><b>Flooded Hall</b></figcaption></figure><figure><video src="videos/garden-walk.mp4" poster="videos/garden-walk.jpg" controls loop playsinline preload="none" style="aspect-ratio:9/16"></video><figcaption><span>10</span><b>Garden Walk</b></figcaption></figure></div>
+<div class="row"><a class="btn" href="index.html#start">Get a free sample ad</a><a class="btn ghost" href="index.html#work">Back to work</a></div></section>
+<footer>© <span id="yr"></span> SFH Studio · <span id="mail"></span> · <a href="community.html" style="color:inherit">Community</a> · <a href="terms.html" style="color:inherit">Terms</a></footer>
+</div>
+<script src="contact.js"></script>
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+document.getElementById('mail').textContent = CONTACT.email;
+// Cloudflare static assets ignore Range requests, so load each file as a blob when it nears the viewport to make scrubbing work.
+const vio = new IntersectionObserver(es => es.forEach(async e => {
+  if (!e.isIntersecting) return;
+  const v = e.target; vio.unobserve(v);
+  try {
+    const blob = await (await fetch(v.getAttribute('src'))).blob();
+    const t = v.currentTime, playing = !v.paused;
+    v.preload = 'metadata';
+    v.src = URL.createObjectURL(blob);
+    if (t) v.currentTime = t;
+    if (playing) v.play();
+  } catch (_) {}
+}), {rootMargin: '300px'});
+document.querySelectorAll('#vgrid video').forEach(v => vio.observe(v));
+</script>
+</body>
+</html>
