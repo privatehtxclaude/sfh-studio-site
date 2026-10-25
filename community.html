@@ -10,16 +10,15 @@
 <meta property="og:title" content="Community · SFH Studio"><meta property="og:description" content="Join the SFH Studio community and earn commission when you refer brands and creators.">
 <meta property="og:url" content="https://sfh.studio/community.html"><meta property="og:image" content="https://sfh.studio/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add("js")</script>
 <style>
 .calc{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:24px}
-.calc label{display:block;font-size:14px;color:var(--mut);margin-bottom:6px}
+.calc label{display:block;font-size:16px;color:var(--mut);margin-bottom:6px}
 .calc output{color:var(--fg);font-weight:600}
 .calc input[type=range]{padding:0}
-.result{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px}
-.result .big{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(44px,7vw,72px);line-height:1;color:#e5322b}
+.result{background:var(--field);padding:24px}
+.result .big{font-family:var(--display);font-size:clamp(44px,7vw,72px);line-height:1;color:var(--red)}
 </style>
 </head>
 <body>
@@ -28,14 +27,13 @@
 <div><a href="index.html#work">Work</a><a href="ads.html">Ads</a><a href="fashion.html">Fashion</a><a href="community.html">Community</a><a href="index.html#start">Start</a></div></nav>
 
 <header>
-<p class="eyebrow" style="margin-top:36px">Community</p>
-<h1 class="page-title">Join the community. Earn when you share it.</h1>
+<h1 class="page-title">Earn when you share.</h1>
 <p class="lede">Know a brand that needs ads or a creator who wants our recipes? Send them our way. When they buy, you get paid. Free to join.</p>
 <div class="row"><a class="btn" href="#join">Apply to join</a><a class="btn ghost" href="#calc">See what you could earn</a></div>
+<div class="posters four"><img src="reels/after-hours.jpg" width="540" height="960" loading="lazy" alt="Still from the Hours Later ad"><img src="reels/timezones.jpg" width="540" height="960" loading="lazy" alt="Still from The Day the World Abolished Time Zones"><img src="reels/billboard.jpg" width="540" height="960" loading="lazy" alt="Still from the Stay For Hours billboard film"><img src="reels/reel-v1.jpg" width="540" height="960" loading="lazy" alt="Still from the Slow Burn film"></div>
 </header>
 
 <section id="how">
-<p class="eyebrow">How it works</p>
 <h2>Three steps</h2>
 <div class="steps">
 <div><strong>Apply</strong><p>Tell us where you share. We approve most creators, designers and marketers.</p></div>
@@ -45,31 +43,28 @@
 </section>
 
 <section id="earn">
-<p class="eyebrow">Commission</p>
 <h2>What you earn</h2>
 <p class="lede">Commission is only on real sales to real customers. There's no pay for signing up other promoters.</p>
 <div class="grid" id="rates"></div>
 </section>
 
 <section id="calc">
-<p class="eyebrow">Calculator</p>
 <h2>What it could look like</h2>
 <div class="calc">
 <div>
 <label>Studio clients you refer in a month: <output id="o1">2</output></label>
 <input type="range" id="clients" min="0" max="10" value="2">
 <label style="margin-top:14px">Average first invoice: <output id="o2">$1,100</output></label>
-<select id="avg"><option value="290">Starter Batch, $290</option><option value="450">Direction Sprint, $450</option><option value="1100" selected>Growth, $1,100</option><option value="2100">5 a Day, $2,100</option></select>
+<select id="avg"><option value="290">Starter Batch, $290</option><option value="1100" selected>Growth, $1,100</option><option value="2100">5 a Day, $2,100</option></select>
 <label style="margin-top:14px">Recipe packs sold in a month: <output id="o3">10</output></label>
 <input type="range" id="packs" min="0" max="100" value="10">
 </div>
-<div class="result"><p class="eyebrow" style="margin:0">Illustrative first-month earnings</p><div class="big" id="total">$0</div><p class="fine" id="breakdown"></p></div>
+<div class="result"><div class="big" id="total">$0</div><p class="fine" id="breakdown"></p></div>
 </div>
 <p class="fine">This calculator is an illustration, not a promise. Most members will earn much less than the maximum, and some will earn nothing. Your results depend on your audience, your effort and your leads.</p>
 </section>
 
 <section id="join">
-<p class="eyebrow">Apply</p>
 <h2>Join the community</h2>
 <form id="apply">
 <input name="name" placeholder="Your name" required>
@@ -82,12 +77,11 @@
 </section>
 
 <section id="rules">
-<p class="eyebrow">Ground rules</p>
 <h2>Program terms</h2>
 <p class="fine">Draft terms, not legal advice. 1) Always disclose that you're a paid partner when you share your link (for example "#ad" or "I earn a commission"), as the FTC requires. 2) No spam, no fake reviews, and no promises about results or income. 3) Commission is paid within 30 days after the customer's payment clears, and not on refunded or disputed payments. 4) Referred clients are credited to the member whose link they used first. 5) You're responsible for your own taxes. We may ask for a tax form before paying over the legal threshold. 6) Either side can end the arrangement at any time, and we can change the rates for future sales. 7) This is a single-level program. Commission is never paid for recruiting other promoters.</p>
 </section>
 
-<footer>© <span id="yr"></span> SFH Studio · <span id="mail"></span> · <a href="fashion.html" style="color:inherit">Fashion</a> · <a href="terms.html" style="color:inherit">Terms</a></footer>
+<footer>© <span id="yr"></span> SFH Studio · <span id="mail"></span> · <a href="index.html#work">Work</a> · <a href="ads.html">Ads</a> · <a href="fashion.html">Fashion</a> · <a href="community.html">Community</a> · <a href="terms.html">Terms</a></footer>
 </div>
 <script src="contact.js"></script>
 <script>
@@ -99,7 +93,7 @@ const RATES = {
 };
 const fmt = n => '$' + Math.round(n).toLocaleString();
 document.getElementById('rates').innerHTML = Object.values(RATES).map(r =>
-  `<div class="card"><span class="tag">${r.label}</span><div class="price">${Math.round(r.pct*100)}%</div><ul><li>${r.note}</li></ul></div>`).join('');
+  `<div class="card"><div class="price">${Math.round(r.pct*100)}%</div><h3 style="font-size:24px;line-height:1.1">${r.label}</h3><p style="margin:8px 0 0">${r.note}</p></div>`).join('');
 const $ = id => document.getElementById(id);
 function calc() {
   const c = +$('clients').value, avg = +$('avg').value, p = +$('packs').value, packPrice = 59;
@@ -114,5 +108,6 @@ document.getElementById('apply').addEventListener('submit', e => { e.preventDefa
 document.getElementById('yr').textContent = new Date().getFullYear();
 document.getElementById('mail').textContent = CONTACT.email;
 </script>
+<script src="site.js"></script>
 </body>
 </html>

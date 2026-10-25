@@ -10,9 +10,8 @@
 <meta property="og:title" content="Ads · SFH Studio"><meta property="og:description" content="AI video ad packages, daily-volume retainers, creative direction and DIY recipe packs from SFH Studio.">
 <meta property="og:url" content="https://sfh.studio/ads.html"><meta property="og:image" content="https://sfh.studio/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
 <div class="wrap">
@@ -20,14 +19,13 @@
 <div><a href="index.html#work">Work</a><a href="ads.html">Ads</a><a href="fashion.html">Fashion</a><a href="community.html">Community</a><a href="index.html#start">Start</a></div></nav>
 
 <header>
-<p class="eyebrow" style="margin-top:36px">Ads</p>
 <h1 class="page-title">Ads built to feel real.</h1>
 <p class="lede">Phone-shot texture, real grain, real pacing. We make the creative, you test it. Pick a package, run the batch yourself with our recipes, or put us on a monthly plan.</p>
 <div class="row"><a class="btn" href="#packages">See packages</a><a class="btn ghost" href="index.html#start">Get a free sample ad</a></div>
+<div class="posters four"><img src="reels/after-hours.jpg" width="540" height="960" loading="lazy" alt="Still from the Hours Later ad"><img src="reels/timezones.jpg" width="540" height="960" loading="lazy" alt="Still from The Day the World Abolished Time Zones"><img src="reels/billboard.jpg" width="540" height="960" loading="lazy" alt="Still from the Stay For Hours billboard film"><img src="reels/reel-v1.jpg" width="540" height="960" loading="lazy" alt="Still from the Slow Burn film"></div>
 </header>
 
 <section id="how">
-<p class="eyebrow">Process</p>
 <h2>How it works</h2>
 <div class="steps">
 <div><strong>Pick a lane</strong><p>Done-for-you, daily volume, or DIY prompt packs.</p></div>
@@ -65,7 +63,7 @@
 <details><summary>Can you use my product photos or a real person's likeness?</summary><p>Product photos, yes. We don't generate real people's likeness without written consent.</p></details>
 </section>
 
-<footer>© <span id="yr"></span> SFH Studio · <span id="mail"></span> · <a href="ads.html" style="color:inherit">Ads</a> · <a href="fashion.html" style="color:inherit">Fashion</a> · <a href="community.html" style="color:inherit">Community</a> · <a href="terms.html" style="color:inherit">Terms</a></footer>
+<footer>© <span id="yr"></span> SFH Studio · <span id="mail"></span> · <a href="index.html#work">Work</a> · <a href="ads.html">Ads</a> · <a href="fashion.html">Fashion</a> · <a href="community.html">Community</a> · <a href="terms.html">Terms</a></footer>
 </div>
 
 <script src="contact.js"></script>
@@ -85,7 +83,7 @@ const SITE = {
     {tag:'10-pack', feat:true, title:'The Viral Vault', price:'$49', unit:'', link:'https://buy.stripe.com/00weV51Rz3nJ66fbjn3VC0b', items:['Ten viral recipes, your picks','Video walkthrough of the workflow','Delivered by email after purchase']}
   ],
   dir: [
-    {tag:'Plan', title:'Creative Direction Sprint', price:'$450', unit:'one-time', link:'https://buy.stripe.com/7sY8wH3ZHf6r2U30EJ3VC01', items:['Concepts, hooks and angles for your brand','Test plan and shot list','Delivered as a written plan in 5 days','Execute it yourself or with us']},
+    {tag:'By inquiry', title:'Creative Direction', price:'', unit:'', link:'', cta:'Inquire', items:['Concepts, hooks and angles for your brand','Test plan and shot list','Delivered as a written plan','Execute it yourself or with us']},
     {tag:'Run it', title:'Managed Testing', price:'$750', unit:'/ 2 weeks', link:'', items:['We launch and monitor your test in your own ad account','1 concept, 3 hooks, one round of cuts based on results','Plain-English results report at the end','Ad spend is paid by you, directly to the platform']},
     {tag:'1-on-1', title:'Consulting / Coaching', price:'$90', unit:'/ hour', link:'https://buy.stripe.com/00w00bbs9f6ramvcnr3VC05', items:['Live call on your project or the workflow','AI ad and video production, prompts, post','Recording and notes included'], extra:{label:'Or a 3-hour pack, $240', url:'https://buy.stripe.com/28EcMXao5e2nfGP4UZ3VC06'}}
   ]
@@ -93,15 +91,16 @@ const SITE = {
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const card = p => full(p);
-const full = p => `<div class="card${p.feat?' feat':''}"><span class="tag">${esc(p.tag)}</span><h3 style="margin:6px 0 0">${esc(p.title)}</h3>
-<div class="price">${esc(p.price)} <small>${esc(p.unit)}</small></div>${p.per?`<div class="tag">${esc(p.per)}</div>`:''}
+const full = p => `<div class="card${p.feat?' feat':''}"><h3 style="margin:0">${esc(p.title)}</h3>
+${p.price?`<div class="price">${esc(p.price)} <small>${esc(p.unit)}</small></div>`:''}<div class="tag">${[p.tag,p.per].filter(Boolean).map(esc).join(' · ')}</div>
 <ul>${p.items.map(i=>`<li>${esc(i)}</li>`).join('')}</ul>
-<a class="btn" href="${p.link?esc(p.link):'index.html#start'}">${p.link?(/month/.test(p.unit)?'Subscribe':'Buy now'):'Get started'}</a>${p.extra?`<a class="btn ghost" style="margin-top:8px" href="${esc(p.extra.url)}">${esc(p.extra.label)}</a>`:''}</div>`;
+<a class="btn" href="${p.link?esc(p.link):'index.html#start'}">${p.link?(/month/.test(p.unit)?'Subscribe':'Buy now'):(p.cta||'Get started')}</a>${p.extra?`<a class="btn ghost" style="margin-top:8px" href="${esc(p.extra.url)}">${esc(p.extra.label)}</a>`:''}</div>`;
 const fill = (id, list) => document.getElementById(id).innerHTML = list.map(card).join('');
 fill('dfy', SITE.dfy); fill('diyg', SITE.diy); fill('dir', SITE.dir);
 
 document.getElementById('yr').textContent = new Date().getFullYear();
 document.getElementById('mail').textContent = CONTACT.email;
 </script>
+<script src="site.js"></script>
 </body>
 </html>

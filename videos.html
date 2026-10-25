@@ -10,41 +10,77 @@
 <meta property="og:title" content="Selected Films · SFH Studio"><meta property="og:description" content="A selection of finished films from SFH Studio.">
 <meta property="og:url" content="https://sfh.studio/videos.html"><meta property="og:image" content="https://sfh.studio/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
 <div class="wrap">
 <nav class="subnav"><a class="logo" href="index.html">SFH Studio</a>
 <div><a href="index.html#work">Work</a><a href="ads.html">Ads</a><a href="fashion.html">Fashion</a><a href="community.html">Community</a><a href="index.html#start">Start</a></div></nav>
 <header>
-<p class="eyebrow" style="margin-top:36px">Selected films</p>
 <h1 class="page-title">Selected films.</h1>
-<p class="lede">A selection of our work, one film at a time.</p>
+<p class="lede">Fifteen films, made with the same pipeline we use for client ads. Click any film to play it.</p>
+<div class="row"><a class="btn" href="index.html#start">Get a free sample ad</a></div>
 </header>
-<section style="border-top:0;padding-top:28px"><div class="vgrid" id="vgrid"><figure><video src="videos/time-zones.mp4" poster="videos/time-zones.jpg" controls loop playsinline preload="none" style="aspect-ratio:9/16"></video><figcaption><span>01</span><b>The Day the World Abolished Time Zones</b></figcaption></figure><figure><video src="videos/boyz.mp4" poster="videos/boyz.jpg" controls loop playsinline preload="none" style="aspect-ratio:9/16"></video><figcaption><span>02</span><b>Boyz in the Future</b></figcaption></figure><figure><video src="videos/where-do-you-exist.mp4" poster="videos/where-do-you-exist.jpg" controls loop playsinline preload="none" style="aspect-ratio:9/16"></video><figcaption><span>03</span><b>Where Do You Exist</b></figcaption></figure><figure class="wide"><video src="videos/love.mp4" poster="videos/love.jpg" controls loop playsinline preload="none" style="aspect-ratio:4/3"></video><figcaption><span>04</span><b>Love</b></figcaption></figure><figure><video src="videos/city-of-screens.mp4" poster="videos/city-of-screens.jpg" controls loop playsinline preload="none" style="aspect-ratio:9/16"></video><figcaption><span>05</span><b>City of Screens</b></figcaption></figure><figure><video src="videos/winged-horse.mp4" poster="videos/winged-horse.jpg" controls loop playsinline preload="none" style="aspect-ratio:9/16"></video><figcaption><span>06</span><b>Winged Horse</b></figcaption></figure><figure><video src="videos/crystal-palace.mp4" poster="videos/crystal-palace.jpg" controls loop playsinline preload="none" style="aspect-ratio:9/16"></video><figcaption><span>07</span><b>Crystal Palace</b></figcaption></figure><figure><video src="videos/dinner-party.mp4" poster="videos/dinner-party.jpg" controls loop playsinline preload="none" style="aspect-ratio:9/16"></video><figcaption><span>08</span><b>Dinner Party</b></figcaption></figure><figure><video src="videos/flooded-hall.mp4" poster="videos/flooded-hall.jpg" controls loop playsinline preload="none" style="aspect-ratio:9/16"></video><figcaption><span>09</span><b>Flooded Hall</b></figcaption></figure><figure><video src="videos/garden-walk.mp4" poster="videos/garden-walk.jpg" controls loop playsinline preload="none" style="aspect-ratio:9/16"></video><figcaption><span>10</span><b>Garden Walk</b></figcaption></figure></div>
-<div class="row"><a class="btn" href="index.html#start">Get a free sample ad</a><a class="btn ghost" href="index.html#work">Back to work</a></div></section>
-<footer>© <span id="yr"></span> SFH Studio · <span id="mail"></span> · <a href="community.html" style="color:inherit">Community</a> · <a href="terms.html" style="color:inherit">Terms</a></footer>
+
+<section class="vsec" id="widescreen">
+<h2 class="rv">Widescreen</h2>
+<div class="vwide" id="wide"></div>
+</section>
+
+<section class="vsec" id="vertical">
+<h2 class="rv">Vertical</h2>
+<div class="vtall" id="tall"></div>
+</section>
+
+<section class="vsec">
+<div class="row"><a class="btn ghost" href="index.html#work">Back to work</a></div>
+</section>
+<footer>© <span id="yr"></span> SFH Studio · <span id="mail"></span> · <a href="index.html#work">Work</a> · <a href="ads.html">Ads</a> · <a href="fashion.html">Fashion</a> · <a href="community.html">Community</a> · <a href="terms.html">Terms</a></footer>
 </div>
 <script src="contact.js"></script>
 <script>
 document.getElementById('yr').textContent = new Date().getFullYear();
 document.getElementById('mail').textContent = CONTACT.email;
-// Cloudflare static assets ignore Range requests, so load each file as a blob when it nears the viewport to make scrubbing work.
-const vio = new IntersectionObserver(es => es.forEach(async e => {
-  if (!e.isIntersecting) return;
-  const v = e.target; vio.unobserve(v);
-  try {
-    const blob = await (await fetch(v.getAttribute('src'))).blob();
-    const t = v.currentTime, playing = !v.paused;
-    v.preload = 'metadata';
-    v.src = URL.createObjectURL(blob);
-    if (t) v.currentTime = t;
-    if (playing) v.play();
-  } catch (_) {}
-}), {rootMargin: '300px'});
-document.querySelectorAll('#vgrid video').forEach(v => vio.observe(v));
+document.documentElement.classList.add('js');
+
+const FILMS = [
+  {src:'videos/love.mp4', poster:'videos/love.jpg', title:'Love', ar:'4/3', t:'0:56'},
+  {src:'reels/castle.mp4', poster:'reels/castle.jpg', title:'Castle film', ar:'4/3', t:'1:17', note:'Fantasy film'},
+  {src:'reels/alpine.mp4', poster:'reels/alpine.jpg', title:'Alpine', ar:'4/3', t:'0:16', note:'Cinematic commercial'},
+  {src:'videos/time-zones.mp4', poster:'videos/time-zones.jpg', title:'The Day the World Abolished Time Zones', ar:'9/16', t:'1:08', note:'Brand story'},
+  {src:'videos/where-do-you-exist.mp4', poster:'videos/where-do-you-exist.jpg', title:'Where Do You Exist', ar:'9/16', t:'1:03'},
+  {src:'videos/flooded-hall.mp4', poster:'videos/flooded-hall.jpg', title:'Flooded Hall', ar:'9/16', t:'0:40'},
+  {src:'videos/boyz.mp4', poster:'videos/boyz.jpg', title:'Boyz in the Future', ar:'9/16', t:'0:31', note:'Shoot a movie'},
+  {src:'videos/city-of-screens.mp4', poster:'videos/city-of-screens.jpg', title:'City of Screens', ar:'9/16', t:'0:25'},
+  {src:'reels/billboard.mp4', poster:'reels/billboard.jpg', title:'Stay For Hours', ar:'9/16', t:'0:22', note:'Your own billboard'},
+  {src:'reels/reel-v1.mp4', poster:'reels/reel-v1.jpg', title:'Slow Burn', ar:'9/16', t:'0:25', note:'Up-close talk'},
+  {src:'videos/crystal-palace.mp4', poster:'videos/crystal-palace.jpg', title:'Crystal Palace', ar:'9/16', t:'0:24'},
+  {src:'videos/dinner-party.mp4', poster:'videos/dinner-party.jpg', title:'Dinner Party', ar:'9/16', t:'0:17'},
+  {src:'reels/after-hours.mp4', poster:'reels/after-hours.jpg', title:'Hours Later', ar:'9/16', t:'0:08', note:'UGC ad'},
+  {src:'videos/winged-horse.mp4', poster:'videos/winged-horse.jpg', title:'Winged Horse', ar:'9/16', t:'0:15'},
+  {src:'videos/garden-walk.mp4', poster:'videos/garden-walk.jpg', title:'Garden Walk', ar:'9/16', t:'0:09'}
+];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const card = (f, i) => `<figure class="vcard rv" style="--d:${(i%4)*70}ms"><button type="button" class="vplay" aria-label="Play ${esc(f.title)}"><video src="${esc(f.src)}" poster="${esc(f.poster)}" loop playsinline preload="none" style="aspect-ratio:${f.ar}"></video></button><figcaption><b>${esc(f.title)}</b><span>${f.t}${f.note?' · '+esc(f.note):''}</span></figcaption></figure>`;
+document.getElementById('wide').innerHTML = FILMS.filter(f => f.ar === '4/3').map(card).join('');
+document.getElementById('tall').innerHTML = FILMS.filter(f => f.ar !== '4/3').map(card).join('');
+
+// Cloudflare static assets ignore Range requests, so load each file as a blob on first play to make scrubbing work.
+async function load(v) {
+  if (v.dataset.blob) return; v.dataset.blob = '1';
+  try { const blob = await (await fetch(v.getAttribute('src'))).blob(); const t = v.currentTime, playing = !v.paused; v.src = URL.createObjectURL(blob); if (t) v.currentTime = t; if (playing) v.play().catch(() => {}); } catch (_) {}
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('.vplay'); if (!b) return;
+  const v = b.querySelector('video');
+  document.querySelectorAll('.vplay.on video').forEach(o => { if (o !== v) { o.pause(); o.parentElement.classList.remove('on'); o.controls = false; } });
+  if (b.classList.contains('on')) return;
+  b.classList.add('on'); v.controls = true; load(v); v.play().catch(() => {});
+});
+
+const rio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); rio.unobserve(e.target); } }), {rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.rv').forEach(el => rio.observe(el));
 </script>
 </body>
 </html>
