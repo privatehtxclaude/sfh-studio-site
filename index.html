@@ -194,6 +194,11 @@ pv.forEach((p, i) => {
   });
 });
 openFilm(0, false);
+// Phone layout is a side-scroller, so the caption follows whichever film is swiped into view.
+if (matchMedia('(max-width:900px)').matches) {
+  const sio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) openFilm(pv.indexOf(e.target), false); }), {root: panels, threshold: 0.6});
+  pv.forEach(p => sio.observe(p));
+}
 
 function pick(style) {
   const f = document.getElementById('intake');
