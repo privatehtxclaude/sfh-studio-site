@@ -19,7 +19,7 @@
 <div><a href="index.html#work">Work</a><a href="ads.html">Ads</a><a href="fashion.html">Fashion</a><a href="community.html">Community</a><a href="index.html#start">Start</a></div></nav>
 <header>
 <h1 class="page-title">Selected films.</h1>
-<p class="lede">Fifteen films, made with the same pipeline we use for client ads. Click any film to play it.</p>
+<p class="lede">Sixteen films, made with the same pipeline we use for client ads. Click any film to play it.</p>
 <div class="row"><a class="btn" href="index.html#start">Get a free sample ad</a></div>
 </header>
 
@@ -45,6 +45,7 @@ document.getElementById('mail').textContent = CONTACT.email;
 document.documentElement.classList.add('js');
 
 const FILMS = [
+  {src:'videos/oven-6.mp4', poster:'videos/oven-6.jpg', title:'Oven 6 (spec commercial)', ar:'4/3', fit:'contain', t:'0:19'},
   {src:'videos/love.mp4', poster:'videos/love.jpg', title:'Love', ar:'4/3', t:'0:56'},
   {src:'reels/castle.mp4', poster:'reels/castle.jpg', title:'Castle film', ar:'4/3', t:'1:17', note:'Fantasy film'},
   {src:'reels/alpine.mp4', poster:'reels/alpine.jpg', title:'Alpine', ar:'4/3', t:'0:16', note:'Cinematic commercial'},
@@ -62,9 +63,9 @@ const FILMS = [
   {src:'videos/garden-walk.mp4', poster:'videos/garden-walk.jpg', title:'Garden Walk', ar:'9/16', t:'0:09'}
 ];
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const card = (f, i) => `<figure class="vcard rv" style="--d:${(i%4)*70}ms"><button type="button" class="vplay" aria-label="Play ${esc(f.title)}"><video src="${esc(f.src)}" poster="${esc(f.poster)}" loop playsinline preload="none" style="aspect-ratio:${f.ar}"></video></button><figcaption><b>${esc(f.title)}</b><span>${f.t}${f.note?' · '+esc(f.note):''}</span></figcaption></figure>`;
-document.getElementById('wide').innerHTML = FILMS.filter(f => f.ar === '4/3').map(card).join('');
-document.getElementById('tall').innerHTML = FILMS.filter(f => f.ar !== '4/3').map(card).join('');
+const card = (f, i) => `<figure class="vcard rv" style="--d:${(i%4)*70}ms"><button type="button" class="vplay" aria-label="Play ${esc(f.title)}"><video src="${esc(f.src)}" poster="${esc(f.poster)}" loop playsinline preload="none" style="aspect-ratio:${f.ar}${f.fit ? ';object-fit:' + f.fit : ''}"></video></button><figcaption><b>${esc(f.title)}</b><span>${f.t}${f.note?' · '+esc(f.note):''}</span></figcaption></figure>`;
+document.getElementById('wide').innerHTML = FILMS.filter(f => f.ar !== '9/16').map(card).join('');
+document.getElementById('tall').innerHTML = FILMS.filter(f => f.ar === '9/16').map(card).join('');
 
 // Cloudflare static assets ignore Range requests, so load each file as a blob on first play to make scrubbing work.
 async function load(v) {
