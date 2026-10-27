@@ -156,6 +156,7 @@ const SITE = {
   formAction: CONTACT.formAction,
   reels: [
     {src:'reels/pink-house.mp4', poster:'reels/pink-house.jpg', label:'Boyz in the Future', ar:'9/16', style:'Shoot a movie'},
+    {src:'videos/oven-6.mp4', poster:'videos/oven-6.jpg', label:'Oven 6 (spec)', ar:'16/9', style:'Small business commercial'},
     {src:'reels/after-hours.mp4', poster:'reels/after-hours.jpg', label:'Hours Later', ar:'9/16', style:'UGC ad'},
     {src:'reels/timezones.mp4', poster:'reels/timezones.jpg', label:'The Day the World Abolished Time Zones', ar:'9/16', style:'Brand story'},
     {src:'reels/castle.mp4', poster:'reels/castle.jpg', label:'Castle film', ar:'4/3', style:'Fantasy film'},
@@ -167,7 +168,7 @@ const SITE = {
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const panels = document.getElementById('reels'), nowT = document.getElementById('now-title'), nowS = document.getElementById('now-style'), nowB = document.getElementById('now-pick');
-panels.innerHTML = SITE.reels.map(r => `<figure class="panel" tabindex="0" aria-label="${esc(r.label)}" style="--ar:${r.ar==='4/3'?1.333:0.5625};--r:${esc(r.ar)}"><video src="${esc(r.src)}" poster="${esc(r.poster||'')}" muted loop playsinline preload="none"></video></figure>`).join('');
+panels.innerHTML = SITE.reels.map(r => `<figure class="panel" tabindex="0" aria-label="${esc(r.label)}" style="--ar:${r.ar.split('/').reduce((w, h) => w / h)};--r:${esc(r.ar)}"><video src="${esc(r.src)}" poster="${esc(r.poster||'')}" muted loop playsinline preload="none"></video></figure>`).join('');
 const pv = [...panels.children];
 let cur = -1;
 // Cloudflare static assets ignore Range requests, so streamed video can't be scrubbed (worst on phones). Loading each file as a blob on first open makes seeking work.

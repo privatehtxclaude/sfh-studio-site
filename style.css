@@ -227,10 +227,10 @@ body>.wrap>footer a{color:inherit}
   .strip{grid-template-columns:repeat(2,1fr);gap:20px}
   .plans,.how-grid,.how-grid.wide{grid-template-columns:1fr;row-gap:32px}
   .plan.big{grid-row:auto}
-  .panels{display:grid;grid-template-columns:1fr 1fr;height:auto;gap:8px}
+  .panels{display:grid;grid-template-columns:1fr 1fr;grid-auto-flow:dense;height:auto;gap:8px}
   .panel,.panel.active{flex:none;aspect-ratio:var(--r)}
-  .panel:nth-child(3),.panel:nth-child(4),.panel:nth-child(7){grid-column:span 2}
-  .panel:nth-child(3){aspect-ratio:4/3}
+  .panel:nth-child(2),.panel:nth-child(4),.panel:nth-child(5),.panel:nth-child(8){grid-column:span 2}
+  .panel:nth-child(4){aspect-ratio:4/3}
   .posters,.posters.four{grid-template-columns:repeat(4,1fr);gap:8px}
   .posters img:nth-child(even){margin-top:20px}
   .offer-row{align-content:start}
