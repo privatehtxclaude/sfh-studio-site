@@ -250,11 +250,12 @@ body>.wrap>footer a{color:inherit}
   .hero h1{font-size:12vw}
   .stay{top:112px;right:auto;left:var(--m)}
   .stay{display:none}
-  .hero .cta{position:static;align-items:flex-start}
+  .hero .cta{align-items:flex-start;margin-top:0;padding:28px 0 0;gap:6px}
+  .hero h1{margin-top:auto}
   .acts{position:relative}
-  .what{position:absolute;top:118px;left:var(--m);right:var(--m);font-size:16px;text-align:left;max-width:22em}
+  .what{font-size:16px;text-align:left;max-width:22em}
   .hero .btn.ghost{display:none}
-  .hero .btn,.hero .btn.ghost{background:none;border:0;border-radius:0;padding:0;font-size:18px;opacity:1}
+  .hero .btn,.hero .btn.ghost{background:none;border:0;border-radius:0;padding:0;font:400 16px/1.5 var(--text);letter-spacing:0;color:rgba(255,255,255,.78);opacity:1}
   .hero .btn:hover{background:none;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:7px}
   .f-name{font-size:18vw}
 }
