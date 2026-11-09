@@ -1,7 +1,7 @@
 // Shared contact settings. Edit here; every page picks them up.
 const CONTACT = {
   email: 'hello@sfh.studio',
-  formAction: '',  // e.g. https://formspree.io/f/xxxxx ; empty = falls back to mailto
+  formAction: '/api/contact',  // handled by worker.js; empty or a failed send falls back to mailto
   // Referral code from ?ref=CODE, remembered so a later inquiry still credits the member.
   ref() {
     try {
@@ -16,7 +16,7 @@ const CONTACT = {
     const ref = this.ref(); if (ref) data.referrer = ref;
     if (this.formAction) {
       try {
-        const fd = new FormData(form); if (ref) fd.append('referrer', ref);
+        const fd = new FormData(form); if (ref) fd.append('referrer', ref); fd.append('_subject', subject);
         const r = await fetch(this.formAction, {method: 'POST', headers: {'Accept': 'application/json'}, body: fd});
         if (r.ok) { form.innerHTML = '<p class="lede">Got it. We\'ll be in touch within a day.</p>'; return; }
       } catch (_) {}
