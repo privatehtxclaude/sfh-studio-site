@@ -12,7 +12,8 @@ const CONTACT = {
   },
   // Sends a form to formAction if set, otherwise opens a mailto draft.
   async submit(form, subject) {
-    const data = Object.fromEntries(new FormData(form));
+    const data = {};
+    for (const [k, v] of new FormData(form)) data[k] = data[k] ? data[k] + ', ' + v : v;
     const ref = this.ref(); if (ref) data.referrer = ref;
     if (this.formAction) {
       try {

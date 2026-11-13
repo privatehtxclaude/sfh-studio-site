@@ -16,12 +16,12 @@
 <body>
 <div class="wrap">
 <nav class="subnav"><a class="logo" href="index.html">SFH Studio</a>
-<div><a href="index.html#work">Work</a><a href="ads.html">Ads</a><a href="fashion.html">Fashion</a><a href="community.html">Community</a><a href="index.html#start">Start</a></div></nav>
+<div><a href="index.html#work">Work</a><a href="ads.html">Ads</a><a href="fashion.html">Fashion</a><a href="index.html#start">Inquire</a></div></nav>
 
 <header>
 <h1 class="page-title">Ads built to feel real.</h1>
 <p class="lede">Phone-shot texture, real grain, real pacing. We make the creative, you test it. Pick a package, run the batch yourself with our recipes, or put us on a monthly plan.</p>
-<div class="row"><a class="btn" href="#packages">See packages</a><a class="btn ghost" href="index.html#start">Get a free sample ad</a></div>
+<div class="row"><a class="btn" href="#packages">See packages</a><a class="btn ghost" href="index.html#start">Inquire</a></div>
 <div class="posters four"><img src="reels/after-hours.jpg" width="540" height="960" loading="lazy" alt="Still from the Hours Later ad"><img src="reels/timezones.jpg" width="540" height="960" loading="lazy" alt="Still from The Day the World Abolished Time Zones"><img src="reels/billboard.jpg" width="540" height="960" loading="lazy" alt="Still from the Stay For Hours billboard film"><img src="reels/reel-v1.jpg" width="540" height="960" loading="lazy" alt="Still from the Slow Burn film"></div>
 </header>
 
@@ -37,9 +37,9 @@
 
 <section id="packages">
 <h2>Done for you</h2>
-<p class="lede">Fixed scope, fixed price, no custom quote.</p>
+<p class="lede">Fixed scope, quoted before any work starts.</p>
 <div class="grid" id="dfy"></div>
-<p class="fine">Need more? Daily volume (5 or 10 new ads every weekday) starts at $2,100 a month, and brand films start at $2,000. <a href="index.html#start" style="color:inherit">Ask for a quote.</a> Every package includes organic use and 90 days of paid-social use. Longer paid use, exclusivity, a full buyout and rush delivery can be added to any package.</p>
+<p class="fine">Need more? Daily volume (5 or 10 new ads every weekday) and brand films are quoted by project. <a href="index.html#start" style="color:inherit">Ask for a quote.</a> Every package includes organic use and 90 days of paid-social use. Longer paid use, exclusivity, a full buyout and rush delivery can be added to any package.</p>
 </section>
 
 <section id="diy">
@@ -56,45 +56,45 @@
 
 <section id="faq">
 <h2>FAQ</h2>
+<details><summary>What does it cost?</summary><p>Every project is quoted to fit its scope. Tell us what you need and a budget range, and we reply with a fixed price before any work starts.</p></details>
 <details><summary>Do the ads say they're AI?</summary><p>We don't lead with it, and we're upfront if you ask. Platform AI-disclosure rules are your responsibility to apply when you publish; we'll tell you which ones apply to your placements.</p></details>
 <details><summary>Who owns the files?</summary><p>Once paid, you get organic use and 90 days of paid-social use. Longer paid use, exclusivity and full buyouts are add-ons. See the <a href="terms.html">terms</a>.</p></details>
-<details><summary>What if I don't like it?</summary><p>One revision round is included in every package. Daily volume includes ongoing direction changes.</p></details>
+<details><summary>What if I don't like it?</summary><p>One revision round is included in every project. Daily volume includes ongoing direction changes.</p></details>
 <details><summary>Do you run the ads too?</summary><p>Optionally. Managed Testing launches and monitors your test inside your own ad account. You keep ownership of the account and pay the platform directly. We don't run ads through ours.</p></details>
 <details><summary>Can you use my product photos or a real person's likeness?</summary><p>Product photos, yes. We don't generate real people's likeness without written consent.</p></details>
 </section>
 
-<footer>© <span id="yr"></span> SFH Studio · <span id="mail"></span> · <a href="index.html#work">Work</a> · <a href="ads.html">Ads</a> · <a href="fashion.html">Fashion</a> · <a href="community.html">Community</a> · <a href="terms.html">Terms</a></footer>
+<footer>© <span id="yr"></span> SFH Studio · <span id="mail"></span> · <a href="index.html#work">Work</a> · <a href="ads.html">Ads</a> · <a href="fashion.html">Fashion</a> · <a href="terms.html">Terms</a></footer>
 </div>
 
 <script src="contact.js"></script>
 <script>
-// Packages and prices live here. DRAFT PRICING: validate against your per-ad credit cost.
+// Packages live here. Prices are quoted per inquiry, so none are listed.
 const SITE = {
   name: 'SFH Studio',
   email: CONTACT.email,
   formAction: CONTACT.formAction,
   dfy: [
-    {tag:'Test', title:'Starter Batch', price:'$290', unit:'one-time', per:'about $58 per ad', link:'https://buy.stripe.com/bJe00bfIp9M766f5Z33VC00', items:['5 ads, 1 concept','3 hook variants','Delivered in 3 days','1 revision round']},
-    {tag:'Most picked', feat:true, title:'Growth', price:'$1,100', unit:'/ month', per:'about $55 per ad', link:'https://buy.stripe.com/6oU7sDgMt8I3fGPfzD3VC07', items:['20 ads per month','Weekly creative drops','Hook and format testing plan','Priority turnaround']},
-    {tag:'Fashion', title:'AI Lookbook', price:'$550', unit:'/ collection', link:'https://buy.stripe.com/3cIcMXeEl0bxamv3QV3VC04', items:['Up to 12 stills on locked model identities','Add motion clips: $1,100','Delivered in 5 days']}
+    {tag:'Test', title:'Starter Batch', items:['5 ads, 1 concept','3 hook variants','Delivered in 3 days','1 revision round']},
+    {tag:'Most picked', feat:true, title:'Growth', items:['20 ads per month','Weekly creative drops','Hook and format testing plan','Priority turnaround']},
+    {tag:'Fashion', title:'AI Lookbook', items:['Up to 12 stills on locked model identities','Motion clips can be added','Delivered in 5 days']}
   ],
   diy: [
-    {tag:'Recipe', title:'The Viral Recipe', price:'$19', unit:'', link:'https://buy.stripe.com/7sYcMX53Lgav7ajfzD3VC0a', items:['Pick any look from our viral reels','The still prompt and settings','The video prompt that brings it to life','Delivered by email after purchase']},
-    {tag:'10-pack', feat:true, title:'The Viral Vault', price:'$49', unit:'', link:'https://buy.stripe.com/00weV51Rz3nJ66fbjn3VC0b', items:['Ten viral recipes, your picks','Video walkthrough of the workflow','Delivered by email after purchase']}
+    {tag:'Recipe', title:'The Viral Recipe', items:['Pick any look from our viral reels','The still prompt and settings','The video prompt that brings it to life','Delivered by email']},
+    {tag:'10-pack', feat:true, title:'The Viral Vault', items:['Ten viral recipes, your picks','Video walkthrough of the workflow','Delivered by email']}
   ],
   dir: [
-    {tag:'By inquiry', title:'Creative Direction', price:'', unit:'', link:'', cta:'Inquire', items:['Concepts, hooks and angles for your brand','Test plan and shot list','Delivered as a written plan','Execute it yourself or with us']},
-    {tag:'Run it', title:'Managed Testing', price:'$750', unit:'/ 2 weeks', link:'', items:['We launch and monitor your test in your own ad account','1 concept, 3 hooks, one round of cuts based on results','Plain-English results report at the end','Ad spend is paid by you, directly to the platform']},
-    {tag:'1-on-1', title:'Consulting / Coaching', price:'$90', unit:'/ hour', link:'https://buy.stripe.com/00w00bbs9f6ramvcnr3VC05', items:['Live call on your project or the workflow','AI ad and video production, prompts, post','Recording and notes included'], extra:{label:'Or a 3-hour pack, $240', url:'https://buy.stripe.com/28EcMXao5e2nfGP4UZ3VC06'}}
+    {tag:'Plan', title:'Creative Direction', items:['Concepts, hooks and angles for your brand','Test plan and shot list','Delivered as a written plan','Execute it yourself or with us']},
+    {tag:'Run it', title:'Managed Testing', items:['We launch and monitor your test in your own ad account','1 concept, 3 hooks, one round of cuts based on results','Plain-English results report at the end','Ad spend is paid by you, directly to the platform']},
+    {tag:'1-on-1', title:'Consulting / Coaching', items:['Live call on your project or the workflow','AI ad and video production, prompts, post','Recording and notes included']}
   ]
 };
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const card = p => full(p);
-const full = p => `<div class="card${p.feat?' feat':''}"><h3 style="margin:0">${esc(p.title)}</h3>
-${p.price?`<div class="price">${esc(p.price)} <small>${esc(p.unit)}</small></div>`:''}<div class="tag">${[p.tag,p.per].filter(Boolean).map(esc).join(' · ')}</div>
+const card = p => `<div class="card${p.feat?' feat':''}"><h3 style="margin:0">${esc(p.title)}</h3>
+<div class="tag">${esc(p.tag)}</div>
 <ul>${p.items.map(i=>`<li>${esc(i)}</li>`).join('')}</ul>
-<a class="btn" href="${p.link?esc(p.link):'index.html#start'}">${p.link?(/month/.test(p.unit)?'Subscribe':'Buy now'):(p.cta||'Get started')}</a>${p.extra?`<a class="btn ghost" style="margin-top:8px" href="${esc(p.extra.url)}">${esc(p.extra.label)}</a>`:''}</div>`;
+<a class="btn" href="index.html#start">Inquire</a></div>`;
 const fill = (id, list) => document.getElementById(id).innerHTML = list.map(card).join('');
 fill('dfy', SITE.dfy); fill('diyg', SITE.diy); fill('dir', SITE.dir);
 

@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Selected Films · SFH Studio</title>
-<meta name="description" content="A selection of finished films from SFH Studio.">
+<title>Selected Work · SFH Studio</title>
+<meta name="description" content="Client campaigns and finished films from SFH Studio.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website"><meta property="og:site_name" content="SFH Studio">
-<meta property="og:title" content="Selected Films · SFH Studio"><meta property="og:description" content="A selection of finished films from SFH Studio.">
+<meta property="og:title" content="Selected Work · SFH Studio"><meta property="og:description" content="Client campaigns and finished films from SFH Studio.">
 <meta property="og:url" content="https://sfh.studio/videos.html"><meta property="og:image" content="https://sfh.studio/og.png?v=2">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="style.css">
@@ -16,27 +16,34 @@
 <body>
 <div class="wrap">
 <nav class="subnav"><a class="logo" href="index.html">SFH Studio</a>
-<div><a href="index.html#work">Work</a><a href="ads.html">Ads</a><a href="fashion.html">Fashion</a><a href="community.html">Community</a><a href="index.html#start">Start</a></div></nav>
+<div><a href="index.html#work">Work</a><a href="ads.html">Ads</a><a href="fashion.html">Fashion</a><a href="index.html#start">Inquire</a></div></nav>
 <header>
-<h1 class="page-title">Selected films.</h1>
-<p class="lede">Sixteen films, made with the same pipeline we use for client ads. Click any film to play it.</p>
-<div class="row"><a class="btn" href="index.html#start">Get a free sample ad</a></div>
+<h1 class="page-title">Selected work.</h1>
+<p class="lede">Ads, films and stills, client work and our own. Click any film to play it.</p>
+<div class="row"><a class="btn" href="index.html#start">Start a project</a></div>
 </header>
 
-<section class="vsec" id="widescreen">
-<h2 class="rv">Widescreen</h2>
-<div class="vwide" id="wide"></div>
+<section class="vsec" id="ads">
+<h2 class="rv">Ads</h2>
+<div class="vrow" id="ad"></div>
 </section>
 
-<section class="vsec" id="vertical">
-<h2 class="rv">Vertical</h2>
-<div class="vtall" id="tall"></div>
+<section class="vsec" id="films">
+<h2 class="rv">Films</h2>
+<div class="vrow" id="film"></div>
+</section>
+
+<section class="vsec" id="stills">
+<h2 class="rv">Stills</h2>
+<div class="vstills" id="still"></div>
+<p class="lede more rv">The whole lookbook is on <a href="fashion.html">the fashion page</a>.</p>
 </section>
 
 <section class="vsec">
 <div class="row"><a class="btn ghost" href="index.html#work">Back to work</a></div>
 </section>
-<footer>© <span id="yr"></span> SFH Studio · <span id="mail"></span> · <a href="index.html#work">Work</a> · <a href="ads.html">Ads</a> · <a href="fashion.html">Fashion</a> · <a href="community.html">Community</a> · <a href="terms.html">Terms</a></footer>
+<dialog id="zoom" aria-label="Still, enlarged"><img alt=""><button type="button" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button></dialog>
+<footer>© <span id="yr"></span> SFH Studio · <span id="mail"></span> · <a href="index.html#work">Work</a> · <a href="ads.html">Ads</a> · <a href="fashion.html">Fashion</a> · <a href="terms.html">Terms</a></footer>
 </div>
 <script src="contact.js"></script>
 <script>
@@ -44,28 +51,53 @@ document.getElementById('yr').textContent = new Date().getFullYear();
 document.getElementById('mail').textContent = CONTACT.email;
 document.documentElement.classList.add('js');
 
-const FILMS = [
+const ADS = [
+  {src:'clients/sos-rolls/doorbell.mp4', poster:'clients/sos-rolls/doorbell-poster.jpg', title:'Doorbell', ar:'9/16', t:'0:20', note:'Client work · SOS Rolls'},
+  {src:'clients/sos-rolls/followed-me-home.mp4', poster:'clients/sos-rolls/followed-me-home-poster.jpg', title:'Followed Me Home', ar:'9/16', t:'0:44', note:'Client work · SOS Rolls'},
   {src:'videos/oven-6.mp4', poster:'videos/oven-6.jpg', title:'Oven 6 (spec commercial)', ar:'4/3', fit:'contain', t:'0:19'},
-  {src:'videos/love.mp4', poster:'videos/love.jpg', title:'Love', ar:'4/3', t:'0:56'},
-  {src:'reels/castle.mp4', poster:'reels/castle.jpg', title:'Castle film', ar:'4/3', t:'1:17', note:'Fantasy film'},
+  {src:'clients/sos-rolls/lifeguard.mp4', poster:'clients/sos-rolls/lifeguard-poster.jpg', title:'Lifeguard', ar:'9/16', t:'0:05', note:'Client work · SOS Rolls'},
+  {src:'reels/after-hours.mp4', poster:'reels/after-hours.jpg', title:'Hours Later', ar:'9/16', t:'0:08', note:'UGC ad'},
   {src:'reels/alpine.mp4', poster:'reels/alpine.jpg', title:'Alpine', ar:'4/3', t:'0:16', note:'Cinematic commercial'},
+  {src:'reels/billboard.mp4', poster:'reels/billboard.jpg', title:'Stay For Hours', ar:'9/16', t:'0:22', note:'Your own billboard'},
+  {src:'reels/reel-v1.mp4', poster:'reels/reel-v1.jpg', title:'Slow Burn', ar:'9/16', t:'0:25', note:'Up-close talk'}
+];
+// Vertical films sit in pairs so none lands alone on a phone row.
+const FILMS = [
   {src:'videos/time-zones.mp4', poster:'videos/time-zones.jpg', title:'The Day the World Abolished Time Zones', ar:'9/16', t:'1:08', note:'Brand story'},
+  {src:'videos/boyz.mp4', poster:'videos/boyz.jpg', title:'Boyz in the Future', ar:'9/16', t:'0:31', note:'Shoot a movie'},
+  {src:'reels/castle.mp4', poster:'reels/castle.jpg', title:'Castle film', ar:'4/3', t:'1:17', note:'Fantasy film'},
+  {src:'videos/love.mp4', poster:'videos/love.jpg', title:'Love', ar:'4/3', t:'0:56'},
   {src:'videos/where-do-you-exist.mp4', poster:'videos/where-do-you-exist.jpg', title:'Where Do You Exist', ar:'9/16', t:'1:03'},
   {src:'videos/flooded-hall.mp4', poster:'videos/flooded-hall.jpg', title:'Flooded Hall', ar:'9/16', t:'0:40'},
-  {src:'videos/boyz.mp4', poster:'videos/boyz.jpg', title:'Boyz in the Future', ar:'9/16', t:'0:31', note:'Shoot a movie'},
   {src:'videos/city-of-screens.mp4', poster:'videos/city-of-screens.jpg', title:'City of Screens', ar:'9/16', t:'0:25'},
-  {src:'reels/billboard.mp4', poster:'reels/billboard.jpg', title:'Stay For Hours', ar:'9/16', t:'0:22', note:'Your own billboard'},
-  {src:'reels/reel-v1.mp4', poster:'reels/reel-v1.jpg', title:'Slow Burn', ar:'9/16', t:'0:25', note:'Up-close talk'},
   {src:'videos/crystal-palace.mp4', poster:'videos/crystal-palace.jpg', title:'Crystal Palace', ar:'9/16', t:'0:24'},
   {src:'videos/dinner-party.mp4', poster:'videos/dinner-party.jpg', title:'Dinner Party', ar:'9/16', t:'0:17'},
-  {src:'reels/after-hours.mp4', poster:'reels/after-hours.jpg', title:'Hours Later', ar:'9/16', t:'0:08', note:'UGC ad'},
   {src:'videos/winged-horse.mp4', poster:'videos/winged-horse.jpg', title:'Winged Horse', ar:'9/16', t:'0:15'},
   {src:'videos/garden-walk.mp4', poster:'videos/garden-walk.jpg', title:'Garden Walk', ar:'9/16', t:'0:09'}
 ];
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const card = (f, i) => `<figure class="vcard rv" style="--d:${(i%4)*70}ms"><button type="button" class="vplay" aria-label="Play ${esc(f.title)}"><video src="${esc(f.src)}" poster="${esc(f.poster)}" loop playsinline preload="none" style="aspect-ratio:${f.ar}${f.fit ? ';object-fit:' + f.fit : ''}"></video></button><figcaption><b>${esc(f.title)}</b><span>${f.t}${f.note?' · '+esc(f.note):''}</span></figcaption></figure>`;
-document.getElementById('wide').innerHTML = FILMS.filter(f => f.ar !== '9/16').map(card).join('');
-document.getElementById('tall').innerHTML = FILMS.filter(f => f.ar === '9/16').map(card).join('');
+const card = (f, i) => `<figure class="vcard rv" style="--d:${(i%4)*70}ms;--ar:${f.ar.split('/').reduce((w, h) => w / h)}"><button type="button" class="vplay" aria-label="Play ${esc(f.title)}"><video src="${esc(f.src)}" poster="${esc(f.poster)}" loop playsinline preload="none" style="aspect-ratio:${f.ar}${f.fit ? ';object-fit:' + f.fit : ''}"></video></button><figcaption><b>${esc(f.title)}</b><span>${f.t}${f.note?' · '+esc(f.note):''}</span></figcaption></figure>`;
+document.getElementById('ad').innerHTML = ADS.map(card).join('');
+document.getElementById('film').innerHTML = FILMS.map(card).join('');
+
+// Client stills first, then the lookbook. Tap any still to see it large.
+const STILLS = [
+  {src:'clients/sos-rolls/in-the-shot.jpg', title:'In the Shot', note:'Client work · SOS Rolls', alt:'A woman taking a mirror photo at a party with an SOS roll in the foreground'},
+  {src:'clients/sos-rolls/worth-hoarding.jpg', title:'Worth Hoarding', note:'Client work · SOS Rolls', alt:'A woman hugging an armful of SOS rolls in a hallway'},
+  {src:'clients/sos-rolls/monument.jpg', title:'Monument', note:'Client work · SOS Rolls', alt:'A building-sized checkered SOS roll standing in sand dunes'},
+  {src:'lookbook/look-03.jpg', note:'Lookbook', alt:'Lookbook still, close portrait in an oxblood leather trench'},
+  {src:'lookbook/look-09.jpg', note:'Lookbook', alt:'Lookbook campaign shown as a billboard on a city building'},
+  {src:'lookbook/look-01.jpg', note:'Lookbook', alt:'Lookbook still, oxblood leather trench on a red carpet'},
+  {src:'lookbook/look-08.jpg', note:'Lookbook', alt:'Lookbook still, close portrait in a black tee'},
+  {src:'lookbook/look-13.jpg', note:'Lookbook', alt:'Lookbook still, close crop of a black coat with a leather tote and silk scarf'}
+];
+document.getElementById('still').innerHTML = STILLS.map((p, i) => `<figure class="vcard rv" style="--d:${(i%4)*70}ms"><button type="button" class="szoom" aria-label="View larger: ${esc(p.alt)}"><img src="${esc(p.src)}" loading="lazy" alt="${esc(p.alt)}"></button><figcaption>${p.title ? `<b>${esc(p.title)}</b>` : ''}<span>${esc(p.note)}</span></figcaption></figure>`).join('');
+const zoom = document.getElementById('zoom'), zimg = zoom.querySelector('img');
+document.getElementById('still').addEventListener('click', e => {
+  const b = e.target.closest('.szoom'); if (!b) return;
+  const im = b.querySelector('img'); zimg.src = im.src; zimg.alt = im.alt; zoom.showModal();
+});
+zoom.addEventListener('click', () => zoom.close());
 
 // Cloudflare static assets ignore Range requests, so load each file as a blob on first play to make scrubbing work.
 async function load(v) {
